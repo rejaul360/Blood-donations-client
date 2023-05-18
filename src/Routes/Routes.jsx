@@ -6,6 +6,7 @@ import Login from "../Pages/Login/Login";
 import SingUp from "../Pages/SingUp/SingUp";
 import AddToy from "../Pages/AddToy/AddToy";
 import Errorpage from "../Pages/Errorpage/Errorpage";
+import PrivateRoutes from "./PrivateRoutes";
 
 
 const router = createBrowserRouter([
@@ -32,7 +33,7 @@ const router = createBrowserRouter([
         },
         {
             path: 'addtoy',
-            element: <AddToy></AddToy>
+            element: <PrivateRoutes><AddToy></AddToy></PrivateRoutes>
         }
       ]
     },

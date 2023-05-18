@@ -2,11 +2,6 @@ import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { FaUserCircle } from 'react-icons/fa';
 import { AuthContext } from '../../Provider/AuthProvider';
-
-
-
-
-
 const Navbar = () => {
 
     const { user, logOut } = useContext(AuthContext);
@@ -18,10 +13,14 @@ const Navbar = () => {
             .catch(error => console.log(error))
     }
     console.log(user);
+
     const menuItems = <>
-       <li className='mr-1 font-bold'> <Link to="/">Home</Link></li>
+
+
+        <li className='mr-1 font-bold'> <Link to="/">Home</Link></li>
         <li className='font-bold'><Link to="/blog">Blog</Link></li>
         <li className='font-bold'><Link to="/addtoy">Add_Toy</Link></li>
+
 
     </>
 
@@ -38,7 +37,7 @@ const Navbar = () => {
                         </ul>
                     </div>
                     <Link to="/" className="logo flex items-center gap-2 h-auto w-auto">
-                       <h1 className='text-center text-4xl font-bold text-cyan-600   mb-6'>ToyZone</h1>
+                        <h1 className='text-center text-4xl font-bold text-cyan-600   mb-6'>ToyZone</h1>
                     </Link>
                 </div>
                 <div className="navbar-center hidden lg:flex">
@@ -60,10 +59,10 @@ const Navbar = () => {
                     <span>{user?.photoURL ?
                         <div className="tooltip tooltip-left tooltip-warning" data-tip={user?.displayName || user?.email}>
                             <img style={{ width: "45px", borderRadius: "50%" }} src={user.photoURL} alt='' />
-                        </div>
 
+                        </div>
                         :
-                        <FaUserCircle className='text-[25px]'></FaUserCircle>}</span>
+                        <FaUserCircle className='text-[25px]'>O</FaUserCircle>}</span>
                 </div>
 
             </div>
