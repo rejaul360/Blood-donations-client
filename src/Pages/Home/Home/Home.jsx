@@ -4,8 +4,10 @@ import Gallery from '../Gallery/Gallery';
 import ReactTabs from '../ReactTabs/ReactTabs';
 import ToyCollection from '../ToyCollection/ToyCollection';
 import BestToy from '../BestToy/BestToy';
+import useTitle from '../../../UseTitle/UseTitle';
 
 const Home = () => {
+    useTitle('Home')
     return (
         <div>
           <Banner></Banner>

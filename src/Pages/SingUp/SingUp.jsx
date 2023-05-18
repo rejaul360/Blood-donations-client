@@ -3,8 +3,10 @@ import google from '../../assets/images/google.png'
 import github from '../../assets/images/github.png'
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../Provider/AuthProvider';
+import useTitle from '../../UseTitle/UseTitle';
 
 const SingUp = () => {
+    useTitle('SingUp')
 
     const { createUser, updateUserProfile } = useContext(AuthContext)
 

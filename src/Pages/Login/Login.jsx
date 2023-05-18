@@ -7,8 +7,11 @@ import 'react-toastify/dist/ReactToastify.css';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { GithubAuthProvider, GoogleAuthProvider } from 'firebase/auth';
 import { AuthContext } from '../../Provider/AuthProvider';
+import useTitle from '../../UseTitle/UseTitle';
 
 const Login = () => {
+
+    useTitle('Login')
 
     const { signInUser, googleSingIn, githubSingIn } = useContext(AuthContext);
     const googleProvider = new GoogleAuthProvider();

@@ -16,14 +16,20 @@ const Navbar = () => {
     console.log(user);
 
     const menuItems = <>
-
-
         <li className='mr-1 font-bold'> <Link to="/">Home</Link></li>
         <li className='font-bold'><Link to="/blog">Blog</Link></li>
-        <li className='font-bold'><Link to="/addtoy">Add_Toy</Link></li>
+        {user ?
+            <>
 
+                <li className='font-bold'><Link to="/addtoy">Add_Toy</Link></li>
+            </> :
+            <>
 
+            </>
+        }
     </>
+
+
 
     return (
         <div className='py-4'>
@@ -47,13 +53,14 @@ const Navbar = () => {
                     </ul>
                 </div>
                 <div className="navbar-end" >
-                    {user?.uid ?
+                    {user ?
                         <>
                             <button onClick={handleLogout} className='btn btn-ghost capitalize'>Logout</button>
                         </> :
                         <>
-                            <button className='capitalize'><Link to='/login'>Login</Link></button>
                             <button className='mx-4 capitalize'><Link to='/singup'>Register</Link></button>
+                            <button className='capitalize'><Link to='/login'>Login</Link></button>
+
 
                         </>
                     }

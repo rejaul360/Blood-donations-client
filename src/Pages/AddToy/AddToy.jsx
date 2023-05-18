@@ -3,9 +3,11 @@ import { useForm } from "react-hook-form";
 import "./AddToy.css"
 import { AuthContext } from '../../Provider/AuthProvider';
 import CreatableSelect from "react-select/creatable";
+import useTitle from '../../UseTitle/UseTitle';
 // import Select from "react-select";
 const AddToy = () => {
 
+    useTitle('AddToy')
     const { user } = useContext(AuthContext);
 
     const [selectedOption, setSelectedOption] = useState(null);
