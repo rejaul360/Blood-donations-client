@@ -4,7 +4,7 @@ import github from '../../assets/images/github.png'
 import './Login.css'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { GithubAuthProvider, GoogleAuthProvider } from 'firebase/auth';
 import { AuthContext } from '../../Provider/AuthProvider';
 
@@ -13,6 +13,11 @@ const Login = () => {
     const { signInUser, googleSingIn, githubSingIn } = useContext(AuthContext);
     const googleProvider = new GoogleAuthProvider();
     const githubProvider = new GithubAuthProvider();
+
+    const navigate = useNavigate()
+    const location = useLocation()
+
+    let from = location.state?.from?.pathname || "/";
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -27,6 +32,7 @@ const Login = () => {
             console.log(result.user);
             form.reset();
             toast('Login successful')
+            navigate(from, { replace: true });
 
         })
         .catch(err => {
