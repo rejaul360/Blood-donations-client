@@ -7,8 +7,8 @@ const Footer = () => {
         <div className='py-4'>
             <footer className="footer p-10 shadow-lg text-base-content">
                 <div>
-                    <Link to="/" className=" normal-case ">
-                    <img className='h-3/6 w-3/6' src={logo} alt="" />
+                    <Link to="/" className="logo flex items-center gap-2 h-auto w-auto">
+                        <h1 className='text-center text-4xl font-bold text-cyan-600   mb-6'>ToyZone</h1>
                     </Link>
                     <p>ACME Industries Ltd.<br />Providing reliable tech since 1992</p>
                 </div>
