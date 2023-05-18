@@ -1,0 +1,32 @@
+body{
+	height: 2000px;
+	background-image: linear-gradient(to top, #30cfd0 0%, #330867 100%);
+}
+.mydiv{
+	height: 700px;
+}
+img{
+	width: 19%;
+	position: relative;
+	margin-top: 70px;
+	border-radius: 5px;
+	box-shadow: 5px 5px 5px rgba(0,0,0,.5);
+}
+.image1{
+	left:80px; 
+}
+.image2{
+	left: 40px;
+	top: 70px;
+}
+.image3{
+	 z-index: 2;
+}
+.image4{
+	left:-40px;
+	top: 70px; 
+	z-index: 1;
+}
+.image5{
+	left: -80px;
+}

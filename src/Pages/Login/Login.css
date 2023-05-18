@@ -1,0 +1,116 @@
+.form_container {
+    width: 600px;
+    background: #FFFFFF;
+    border-radius: 8px;
+    margin: 50px auto;
+
+}
+
+.title {
+    font-family: 'Lato';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 39px;
+    text-align: center;
+    line-height: 42px;
+    letter-spacing: 0.0025em;
+}
+
+.form_control {
+    margin-left: 85px;
+    margin-top: 20px;
+}
+
+.form_control .label {
+    display: block;
+    font-family: 'Lato';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 17px;
+    line-height: 20px;
+    letter-spacing: 0.0015em;
+    color: #2A414F;
+    /* margin-bottom: 9px; */
+
+
+}
+
+.form_container input {
+    box-sizing: border-box;
+    width: 415px;
+    height: 45px;
+    border: 1px solid #95A0A7;
+    border-radius: 5px;
+    padding: 0 15px;
+
+}
+
+.submit_btn {
+    width: 415px;
+    height: 55px;
+    margin-top: 25px;
+    margin-left: 85px;
+    background: #31befa;
+    border-radius: 5px;
+    border: 0;
+    font-family: 'Lato';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 21px;
+    line-height: 25px;
+    letter-spacing: 0.0015em;
+    color: white;
+    transition: all .3s ease-in;
+
+}
+
+.submit_btn:hover {
+    background: #f23f7e;
+}
+
+.new_account {
+    font-family: 'Lato';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 17px;
+    line-height: 20px;
+    letter-spacing: 0.0015em;
+    color: #2A414F;
+    margin-left: 85px;
+    margin-top: 20px;
+
+}
+
+.divide_container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.divide {
+    width: 180px;
+    height: 1px;
+    background-color: #95A0A7;
+    font-family: 'Lato';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 17px;
+    line-height: 20px;
+    letter-spacing: 0.005em;
+}
+
+.social-btn{
+    width:400px ;
+    height: 50px;
+    background-color: #0b5b83;
+    display: block;
+    margin: 0 auto;
+    color: #fff;
+    margin-top:20px ;
+}
+
+.social-img{
+    width:35px;
+    height:35px;
+}
