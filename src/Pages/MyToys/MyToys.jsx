@@ -7,7 +7,7 @@ const MyToys = () => {
     const [mytoys , setMyToys] = useState([])
 
     useEffect(()=>{
-        fetch( `http://localhost:5000/myToy/${user.email}`)
+        fetch( `https://server-site-peach.vercel.app/myToy/${user.email}`)
         .then(res=>res.json()
         .then(data=>{
             setMyToys(data);

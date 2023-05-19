@@ -18,7 +18,7 @@ const AddToy = () => {
     const onSubmit = (data) => {
         data.sports = selectedOption;
 
-        fetch('http://localhost:5000/postToy', {
+        fetch('https://server-site-peach.vercel.app/postToy', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
