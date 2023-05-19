@@ -17,7 +17,7 @@ const MyToys = () => {
 
     const handleUpdateToyInfo = (data) => { 
         fetch(`https://server-site-peach.vercel.app/updateToyInfo/${data?._id}`,{
-            method: 'put',
+            method: 'PUT',
             headers: {
                 'content-type': 'application/json'
             },
@@ -66,6 +66,7 @@ const MyToys = () => {
                                     {" "}
                                     <button><UpdatetoyInfo 
                                     toy={toy}
+                                    key={toy._id}
                                     handleUpdateToyInfo={handleUpdateToyInfo}
                                     ></UpdatetoyInfo></button>
                                 </td>
