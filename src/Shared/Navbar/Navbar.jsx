@@ -17,6 +17,7 @@ const Navbar = () => {
 
     const menuItems = <>
         <li className='mr-1 font-bold'> <Link to="/">Home</Link></li>
+        <li className='mr-1 font-bold'> <Link to="/alltoy">All-Toy</Link></li>
         <li className='font-bold'><Link to="/blog">Blog</Link></li>
         {user ?
             <>
@@ -70,7 +71,7 @@ const Navbar = () => {
 
                         </div>
                         :
-                        <FaUserCircle className='text-[25px]'>O</FaUserCircle>}</span>
+                        <FaUserCircle className='text-[25px] ml-2'>O</FaUserCircle>}</span>
                 </div>
 
             </div>

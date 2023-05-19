@@ -71,7 +71,7 @@ const AddToy = () => {
 
                         <input
                             className="text-input w-1/2"
-                            value={user?.email}
+                            // value={user?.email}
                             {...register("postedBy")}
                             placeholder="your email"
                             type="email"

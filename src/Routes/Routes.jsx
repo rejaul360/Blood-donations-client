@@ -7,6 +7,7 @@ import SingUp from "../Pages/SingUp/SingUp";
 import AddToy from "../Pages/AddToy/AddToy";
 import Errorpage from "../Pages/Errorpage/Errorpage";
 import PrivateRoutes from "./PrivateRoutes";
+import AllToy from "../Pages/AllToy/AllToy";
 
 
 const router = createBrowserRouter([
@@ -34,6 +35,10 @@ const router = createBrowserRouter([
         {
             path: 'addtoy',
             element: <PrivateRoutes><AddToy></AddToy></PrivateRoutes>
+        },
+        {
+            path: '/alltoy',
+            element: <AllToy></AllToy>
         }
       ]
     },
