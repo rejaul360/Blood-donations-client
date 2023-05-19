@@ -15,6 +15,21 @@ const MyToys = () => {
         }))
     },[user])
 
+    const handleUpdateToyInfo = (data) => { 
+        fetch(`https://server-site-peach.vercel.app/updateToyInfo/${data?._id}`,{
+            method: 'put',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(data)
+        })
+        .then(res => res.json())
+        .then(result => {
+            console.log(result)
+        })
+        console.log(data);
+    }
+
 
     return (
         <div className='h-full shadow py-8'>
@@ -51,6 +66,7 @@ const MyToys = () => {
                                     {" "}
                                     <button><UpdatetoyInfo 
                                     toy={toy}
+                                    handleUpdateToyInfo={handleUpdateToyInfo}
                                     ></UpdatetoyInfo></button>
                                 </td>
                                 <td>

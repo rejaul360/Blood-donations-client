@@ -13,7 +13,7 @@ const Navbar = () => {
             })
             .catch(error => console.log(error))
     }
-    console.log(user);
+    // console.log(user);
 
     const menuItems = <>
         <li className='mr-1 font-bold'> <Link to="/">Home</Link></li>

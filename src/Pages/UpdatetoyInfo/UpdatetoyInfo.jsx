@@ -6,7 +6,9 @@ import { AuthContext } from '../../Provider/AuthProvider';
 import "./UpdatetoyInfo.css"
 // import CreatableSelect from 'react-select/dist/declarations/src/Creatable';
 
-const UpdatetoyInfo = () => {
+const UpdatetoyInfo = (props) => {
+
+    const { handleUpdateToyInfo } = props
 
     const { user } = useContext(AuthContext)
 
@@ -25,8 +27,8 @@ const UpdatetoyInfo = () => {
                     <div className="add-toy-container shadow-md rounded-md">
                         <div className="add-toy row">
                             <div className="text-center mx-auto ">
-                               
-                                <form className='space-y-3' onSubmit={handleSubmit(onSubmit)}>
+
+                                <form className='space-y-3' onSubmit={handleSubmit(handleUpdateToyInfo)}>
 
                                     {/* <input
                                         className="text-input w-1/2 mt-6"
@@ -37,6 +39,7 @@ const UpdatetoyInfo = () => {
                                     <input
                                         className="text-input w-1/2"
                                         {...register("name")}
+                                        defaultValue={props?.toy?.name}
                                         placeholder="Toy Name"
                                     />
                                     {/* <input
@@ -45,34 +48,42 @@ const UpdatetoyInfo = () => {
                                         {...register("salername")}
                                         placeholder="saler name"
                                     /> */}
-{/* 
+
                                     <input
                                         className="text-input w-1/2"
-                                        // value={user?.email}
+                                        value={user?.email}
                                         {...register("postedBy")}
                                         placeholder="your email"
                                         type="email"
-                                    /> */}
+                                    />
 
                                     <input
                                         className="text-input w-1/2"
                                         {...register("rating", { required: true })}
                                         placeholder="rating"
+                                        defaultValue={props?.toy?.rating}
                                         type="number"
                                     />
                                     <input
                                         className="text-input w-1/2"
                                         {...register("price", { required: true })}
                                         placeholder="price"
+                                        defaultValue={props?.toy?.price}
                                         type="number"
+                                    />
+                                    <input
+                                        className="text-input hidden"
+                                        {...register("_id")}
+                                        value={props?.toy?._id}
                                     />
                                     <input
                                         className="text-input w-1/2"
                                         {...register("quantity", { required: true })}
                                         placeholder="availabel quantity"
+                                        defaultValue={props?.toy?.quantity}
                                         type="number"
                                     />
-{/* 
+                                    {/* 
                                     <CreatableSelect
                                         className="w-1/2  mx-auto"
                                         defaultValue={selectedOption}
@@ -83,17 +94,18 @@ const UpdatetoyInfo = () => {
                                     <input
                                         className="text-input w-1/2"
                                         {...register("description")}
+                                        defaultValue={props?.toy?.description}
                                         placeholder="description"
                                     />
                                     <div className='w-1/2 mx-auto'>
-                                        <input className="submit-btn w-1/2" value="Post Job" type="submit" />
+                                        <input className="submit-btn w-1/2" value="Update Toy" type="submit" />
                                     </div>
                                 </form>
                             </div>
                         </div>
                     </div>
                     <div className="modal-action">
-                        <label htmlFor="my-modal-5" className="btn">Yay!</label>
+                        <label htmlFor="my-modal-5" className="btn">Close</label>
                     </div>
                 </div>
             </div>
