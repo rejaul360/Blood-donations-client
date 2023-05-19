@@ -66,7 +66,7 @@ const Navbar = () => {
 
                         </>
                     }
-                    <span>{user?.photoURL ?
+                    <span>{user?.photoURL?
                         <div className="tooltip tooltip-left tooltip-warning" data-tip={user?.displayName || user?.email}>
                             <img style={{ width: "45px", borderRadius: "50%" }} src={user.photoURL} alt='' />
 

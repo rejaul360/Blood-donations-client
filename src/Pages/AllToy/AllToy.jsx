@@ -6,7 +6,7 @@ const AllToy = () => {
 
     useTitle('All Toys')
     const { user } = useContext(AuthContext)
-
+    const [searchText, setSearchText] = useState("");
     const [alltoys, setAllToys] = useState([])
 
     useEffect(() => {
@@ -17,12 +17,22 @@ const AllToy = () => {
             })
     }, [user])
 
+    const handleSearchText = () => {
+        fetch(`http://localhost:5000/serchByName/${searchText}`)
+        .then(res=>res.json())
+        .then(data=>{
+            setAllToys(data)
+        })
+    }
+
     return (
         <div className='h-full shadow'>
             <h1 className='text-center text-4xl font-bold text-cyan-600  mb-6' >All Toys Here</h1>
             <div className="search-box p-2 text-center mb-6">
-                <input type="text" className="p-1 w-1/2 border shadow" />
-                <button className='border ml-3 text-1xl rounded-lg bg-cyan-700 text-white h-10 w-28'>Search</button>
+                <input 
+                 onChange={(e) => setSearchText(e.target.value)}
+                type="text" className="p-1 w-1/2 border shadow" />
+                <button onClick={handleSearchText} className='border ml-3 text-1xl rounded-lg bg-cyan-700 text-white h-10 w-28'>Search</button>
             </div>
             <div>
                 <div className="overflow-x-auto">
@@ -43,6 +53,7 @@ const AllToy = () => {
 
                             {alltoys?.map((toy, index) => (
                                 <tr>
+                                    toy={toy._id}
                                     <td>{index + 1}</td>
                                     <td>{toy.salername}</td>
                                     <td>{toy.name}</td>
