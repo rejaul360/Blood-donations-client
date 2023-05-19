@@ -22,7 +22,8 @@ const Navbar = () => {
         {user ?
             <>
 
-                <li className='font-bold'><Link to="/addtoy">Add_Toy</Link></li>
+                <li className='font-bold'><Link to="/addtoy">Add_Toys</Link></li>
+                <li className='font-bold'><Link to="/mytoy">My_Toy</Link></li>
             </> :
             <>
 

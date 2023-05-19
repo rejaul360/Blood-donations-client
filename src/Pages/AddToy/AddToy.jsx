@@ -45,7 +45,7 @@ const AddToy = () => {
 
 
     return (
-        <div className="add-toy-container">
+        <div className="add-toy-container shadow-md rounded-md">
             <div className="add-toy row">
                 <div className="text-center mx-auto ">
                 <h1 className='text-center text-4xl font-bold text-cyan-600   mb-6' >ADD Toys</h1>
