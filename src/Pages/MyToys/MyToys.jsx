@@ -1,5 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../../Provider/AuthProvider';
+import UpdatetoyInfo from '../UpdatetoyInfo/UpdatetoyInfo';
 
 const MyToys = () => {
 
@@ -48,11 +49,13 @@ const MyToys = () => {
                                 <td>{toy.rating}</td>
                                 <td>
                                     {" "}
-                                    <button>Edit</button>
+                                    <button><UpdatetoyInfo 
+                                    toy={toy}
+                                    ></UpdatetoyInfo></button>
                                 </td>
                                 <td>
                                     {" "}
-                                    <button>Delete</button>
+                                    <button className='btn btn-outline btn-error'>Delete</button>
                                 </td>
                             </tr>
                         ))}

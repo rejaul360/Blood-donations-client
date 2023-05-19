@@ -11,14 +11,12 @@ const AddToy = () => {
     const { user } = useContext(AuthContext);
 
     const [selectedOption, setSelectedOption] = useState(null);
-
-
     const { register, handleSubmit, watch, formState: { errors } } = useForm();
 
     const onSubmit = (data) => {
         data.sports = selectedOption;
 
-        fetch('https://server-site-peach.vercel.app/postToy', {
+        fetch('https://server-site-peach.vercel.app/postToy',{
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

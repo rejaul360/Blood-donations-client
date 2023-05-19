@@ -8,7 +8,7 @@ const PrivateRoutes = ({ children }) => {
 
     if (loading) {
         return <h3 className='text-red-500 text-center fw-bold text-5xl mt-7'>
-            Loading...
+         <progress className="progress w-56"></progress>
         </h3>
     }
     if (user) {
