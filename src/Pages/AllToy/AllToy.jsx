@@ -52,8 +52,8 @@ const AllToy = () => {
                         <tbody>
 
                             {alltoys?.map((toy, index) => (
-                                <tr>
-                                    toy={toy._id}
+                                <tr  toy={toy._id}>
+                                   
                                     <td>{index + 1}</td>
                                     <td>{toy.salername}</td>
                                     <td>{toy.name}</td>
