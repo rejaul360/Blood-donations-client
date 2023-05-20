@@ -9,7 +9,7 @@ const Footer = () => {
                     <Link to="/" className="logo flex items-center gap-2 h-auto w-auto">
                         <h1 className='text-center text-4xl font-bold text-cyan-600   mb-6'>ToyZone</h1>
                     </Link>
-                    <p>ACME Industries Ltd.<br />Providing reliable tech since 1992</p>
+                    <p>Baby Toys Zone.<br />More then 1 milione Products we have</p>
                 </div>
                 <div>
                     <span className="footer-title">Services</span>

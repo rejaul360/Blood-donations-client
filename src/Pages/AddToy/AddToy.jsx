@@ -1,122 +1,150 @@
-import React, { useContext, useState } from 'react';
-import { useForm } from "react-hook-form";
-import "./AddToy.css"
+import React, { useContext } from 'react';
+import Swal from 'sweetalert2'
 import { AuthContext } from '../../Provider/AuthProvider';
-import CreatableSelect from "react-select/creatable";
-import useTitle from '../../UseTitle/UseTitle';
-// import Select from "react-select";
+
+
 const AddToy = () => {
 
-    useTitle('AddToy')
-    const { user } = useContext(AuthContext);
+    const { user } = useContext(AuthContext)
 
-    const [selectedOption, setSelectedOption] = useState(null);
-    const { register, handleSubmit, watch, formState: { errors } } = useForm();
+    const handleAddtoys = event => {
+        event.preventDefault();
 
-    const onSubmit = (data) => {
-        data.sports = selectedOption;
+        const form = event.target;
 
-        fetch('https://server-site-peach.vercel.app/postToy',{
+        const name = form.name.value;
+        const quantity = form.quantity.value;
+        const postedBy = form.postedBy.value;
+        const salername = form.salername.value;
+        const price = form.price.value;
+        const rating = form.rating.value;
+        const category = form.category.value;
+        const description = form.description.value;
+        const photo = form.image.value;
+
+
+
+        const addToy = { name, quantity, salername, price,category,  description, photo,postedBy,rating }
+
+        console.log(addToy);
+
+        // send data to the server
+        fetch('http://localhost:5000/postToy', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
             },
-            body: JSON.stringify(data)
+            body: JSON.stringify(addToy)
         })
-        .then(res => res.json())
-        .then(data => {
-            console.log(data)
-        })
-
-        console.log(data);
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+                if (data.insertedId) {
+                    Swal.fire({
+                        title: 'Success!',
+                        text: 'Toy Added Successfully',
+                        icon: 'success',
+                        confirmButtonText: 'Done'
+                    })
+                }
+            })
     }
-   
-
-    const options = [
-        { value: "Cricket", label: "Cricket" },
-        { value: "Football", label: "Football" },
-        { value: "Basketball", label: "Basketball" },
-        { value: "Hocky", label: "Hocky" },
-        { value: "Voliball", label: "Voliball" },
-        { value: "Raket", label: "Raket" },
-    ];
 
 
     return (
-        <div className="add-toy-container shadow-md rounded-md">
-            <div className="add-toy row">
-                <div className="text-center mx-auto ">
-                <h1 className='text-center text-4xl font-bold text-cyan-600   mb-6' >ADD Toys</h1>
-                    <form className='space-y-3' onSubmit={handleSubmit(onSubmit)}>
-
-                        <input
-                            className="text-input w-1/2 mt-6"
-                            {...register("image")}
-                            placeholder="image link"
-                            type="url"
-                        />
-                        <input
-                            className="text-input w-1/2"
-                            {...register("name")}
-                            placeholder="Toy Name"
-                        />
-                        <input
-                            className="text-input w-1/2"
-                            value={user?.displayname}
-                            {...register("salername")}
-                            placeholder="saler name"
-                        />
-
-                        <input
-                            className="text-input w-1/2"
-                            // value={user?.email}
-                            {...register("postedBy")}
-                            placeholder="your email"
-                            type="email"
-                        />
-
-                        {/* <input
-                            className="text-input w-1/2"
-                            {...register("category", { required: true })}
-                            placeholder="category"
-                        /> */}
-                        <input
-                            className="text-input w-1/2"
-                            {...register("rating", { required: true })}
-                            placeholder="rating"
-                            type="number"
-                        />
-                        <input
-                            className="text-input w-1/2"
-                            {...register("price", { required: true })}
-                            placeholder="price"
-                            type="number"
-                        />
-                        <input
-                            className="text-input w-1/2"
-                            {...register("quantity", { required: true })}
-                            placeholder="availabel quantity"
-                            type="number"
-                        />
-
-                        <CreatableSelect
-                            className="w-1/2  mx-auto"
-                            defaultValue={selectedOption}
-                            onChange={setSelectedOption}
-                            options={options}
-                            isMulti
-                        />
-                        <input
-                            className="text-input w-1/2"
-                            {...register("description")}
-                            placeholder="description"
-                        />
-                        <div className='w-1/2 mx-auto'>
-                            <input className="submit-btn w-1/2" value="Post Job" type="submit" />
-                        </div>
-                    </form>
+        <div className="bg-[#b8e9ec] p-24 rounded-3xl py-7 shadow-lg">
+            <h2 className="text-3xl font-extrabold text-center py-6">Add A Toy</h2>
+            <form onSubmit={handleAddtoys}>
+                {/* form name and quantity row */}
+                <div className="mb-8">
+                    <div className="form-control w-full">
+                        <label className="label">
+                            <span className="label-text">Photo URL</span>
+                        </label>
+                        <label className="input-group">
+                            <input type="text" name="image" placeholder="Photo URL" className="input input-bordered w-full" />
+                        </label>
+                    </div>
                 </div>
-            </div>
+                <div className="md:flex mb-8">
+                    <div className="form-control md:w-1/2">
+                        <label className="label">
+                            <span className="label-text">name</span>
+                        </label>
+                        <label className="input-group">
+                            <input type="text" name="name" placeholder="toy name" className="input input-bordered w-full" />
+                        </label>
+                    </div>
+                    <div className="form-control md:w-1/2 ml-4">
+                        <label className="label">
+                            <span className="label-text">Available Quantity</span>
+                        </label>
+                        <label className="input-group">
+                            <input type="text" name="quantity" placeholder="Available Quantity" className="input input-bordered w-full" />
+                        </label>
+                    </div>
+                </div>
+
+                <div className="md:flex mb-8">
+                    <div className="form-control md:w-1/2">
+                        <label className="label">
+                            <span className="label-text">Saler name</span>
+                        </label>
+                        <label className="input-group">
+                            <input type="text" name="salername" placeholder="saler name" className="input input-bordered w-full" defaultValue={user?.displayName} />
+                        </label>
+                    </div>
+                    <div className="form-control md:w-1/2 ml-4">
+                        <label className="label">
+                            <span className="label-text">Email</span>
+                        </label>
+                        <label className="input-group">
+                            <input type="text" name="postedBy" placeholder="Email" className="input input-bordered w-full" defaultValue={user?.email} />
+                        </label>
+                    </div>
+                </div>
+                <div className="md:flex mb-8">
+                    <div className="form-control md:w-1/2">
+                        <label className="label">
+                            <span className="label-text">Price</span>
+                        </label>
+                        <label className="input-group">
+                            <input type="number" name="price" placeholder="Price" className="input input-bordered w-full" />
+                        </label>
+                    </div>
+                    <div className="form-control md:w-1/2 ml-4">
+                        <label className="label">
+                            <span className="label-text">Rating</span>
+                        </label>
+                        <label className="input-group">
+                            <input type="number" name="rating" placeholder="Rating" className="input input-bordered w-full" />
+                        </label>
+                    </div>
+                </div>
+                <div className="md:flex mb-8">
+                    <div className="form-control md:w-1/2">
+                    <label className="label">
+                            <span className="label-text">Category</span>
+                        </label>
+                        <select name='category' className="select select-bordered w-full  ">
+                            <option value='Cricket'>Cricket</option>
+                            <option value='Football'>Football</option>
+                            <option value='Basketball'>Basketball</option>
+                        </select>
+                    </div>
+                    <div className="form-control md:w-1/2 ml-4">
+                        <label className="label">
+                            <span className="label-text">Details</span>
+                        </label>
+                        <label className="input-group">
+                            <input type="text" name="description" placeholder="Details" className="input input-bordered w-full" />
+                        </label>
+                    </div>
+                </div>
+
+                <input type="submit" value="Add Toy" className="btn btn-primary w-full" />
+
+            </form>
         </div>
     );
 };
