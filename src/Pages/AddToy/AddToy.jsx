@@ -53,7 +53,7 @@ const AddToy = () => {
 
     return (
         <div className="bg-[#b8e9ec] p-24 rounded-3xl py-7 shadow-lg">
-            <h2 className="text-3xl font-extrabold text-center py-6">Add A Toy</h2>
+            <h2 className="text-center text-4xl font-bold text-cyan-600  mb-6">Add A Toy</h2>
             <form onSubmit={handleAddtoys}>
                 {/* form name and quantity row */}
                 <div className="mb-8">

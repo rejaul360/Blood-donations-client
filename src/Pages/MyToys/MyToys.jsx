@@ -3,6 +3,7 @@ import { AuthContext } from '../../Provider/AuthProvider';
 import UpdatetoyInfo from '../UpdatetoyInfo/UpdatetoyInfo';
 import Swal from 'sweetalert2';
 import { Link } from 'react-router-dom';
+import { key } from 'localforage';
 
 const MyToys = () => {
 
@@ -11,36 +12,15 @@ const MyToys = () => {
 
 
     useEffect(() => {
-        fetch(`https://car-doctor-server-site-eight.vercel.app/myToy/${user.email}`)
-            .then(res => res.json()
-                .then(data => {
-                    setMyToys(data);
-                }))
+        if (user) {
+            console.log(user.email)
+            fetch(`http://localhost:5000/myToy/${user.email}`)
+                .then(res => res.json()
+                    .then(data => {
+                        setMyToys(data);
+                    }))
+        }
     }, [user])
-    // console.log(mytoys);
-
-
-    // const handleUpdateToyInfo = (data) => {
-    //     console.log(data);
-
-    // //    const id = data._id
-    // //     delete data._id
-
-    //     fetch(`http://localhost:5000/updateToyInfo/${id}`,{
-    //         method: 'PUT',
-    //         headers: {
-    //             'content-type': 'application/json'
-    //         },
-    //         body: JSON.stringify(data)
-    //     })
-    //     .then(res => res.json())
-    //     .then(result => {
-    //         console.log(result)
-    //     })
-    //     console.log(data);
-    // }
-
-
     const handleToyDelete = (_id) => {
         console.log(_id);
         Swal.fire({
@@ -106,7 +86,7 @@ const MyToys = () => {
                                     <td>{toy.quantity}</td>
                                     <td>{toy.rating}</td>
                                     <td>
-                                        
+
                                         <Link to={`/updateInfo/${toy._id}`}>
                                             <button className='btn btn-outline btn-success'>
                                                 Update
@@ -114,7 +94,7 @@ const MyToys = () => {
                                         </Link>
                                     </td>
                                     <td>
-                                    
+
                                         <button onClick={() => handleToyDelete(toy._id)} className='btn btn-outline btn-error'>Delete</button>
                                     </td>
                                 </tr>
