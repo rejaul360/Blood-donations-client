@@ -8,18 +8,14 @@ const ReactTabs = () => {
     };
 
     return (
-
-
         <div>
-              <div className='space-y-5'>
-                    <h1 className='text-center text-4xl font-bold text-cyan-600   mt-6' >Shop by category</h1>
-                    <p className='text-center font-bold'> if you want to shop toys 
-                        <br />
-                       we have many items here, you can buy anything if you want
-                    </p>
-                </div>
-           
-
+            <div className='space-y-5'>
+                <h1 className='text-center text-4xl font-bold text-cyan-600   mt-6' >Shop by category</h1>
+                <p className='text-center font-bold'> if you want to shop toys
+                    <br />
+                    we have many items here, you can buy anything if you want
+                </p>
+            </div>
             <div className="container">
                 <div className="bloc-tabs">
                     <button

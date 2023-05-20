@@ -54,9 +54,12 @@ const MyToys = () => {
     }
 
 
+
+
     return (
         <div className='h-full shadow py-8'>
             <h1 className='text-center text-4xl font-bold text-cyan-600  mb-6 ' >My Toys</h1>
+
             <div>
                 <div className="overflow-x-auto">
                     <table className="table table-zebra w-full ">

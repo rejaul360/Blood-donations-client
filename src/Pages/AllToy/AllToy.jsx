@@ -26,10 +26,33 @@ const AllToy = () => {
                 setAllToys(data)
             })
     }
+    const handleAscending = () => {
+        fetch(`http://localhost:5000/aescending?email=${user?.email}`)
+        .then(res=>res.json())
+        .then(data=> {
+            // setAllToys(data)
+            console.log(data);
+        })
+        
+    }
+    const handleDscending = () => {
+        fetch(`http://localhost:5000/descending?email=${user?.email}`)
+        .then(res=>res.json())
+        .then(data=> {
+            // setAllToys(data)
+            console.log(data);
 
+
+            
+        })
+    }
     return (
         <div className='h-full shadow'>
             <h1 className='text-center text-4xl font-bold text-cyan-600  mb-6' >All Toys Here</h1>
+            <div>
+                <button onClick={handleAscending} className='mr-6' >Asn</button>
+                <button onClick={handleDscending}>Dsn</button>
+            </div>
             <div className="search-box p-2 text-center mb-6">
                 <input
                     onChange={(e) => setSearchText(e.target.value)}
