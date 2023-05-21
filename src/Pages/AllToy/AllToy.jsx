@@ -26,26 +26,26 @@ const AllToy = () => {
                 setAllToys(data)
             })
     }
-    const handleAscending = () => {
-        fetch(`https://sports-toy-zone.vercel.app/aescending?price=${user?.price}`)
-        .then(res=>res.json())
-        .then(data=> {
-            // setAllToys(data)
-            console.log(data);
-        })
+    // const handleAscending = () => {
+    //     fetch(`https://sports-toy-zone.vercel.app/aescending?price=${user?.email}`)
+    //     .then(res=>res.json())
+    //     .then(data=> {
+    //         setAllToys(data)
+    //         console.log(data);
+    //     })
         
-    }
-    const handleDscending = () => {
-        fetch(`https://sports-toy-zone.vercel.app/descending?price=${user?.price}`)
-        .then(res=>res.json())
-        .then(data=> {
-            // setAllToys(data)
-            console.log(data);
+    // }
+    // const handleDscending = () => {
+    //     fetch(`https://sports-toy-zone.vercel.app/descending?price=${user?.email}`)
+    //     .then(res=>res.json())
+    //     .then(data=> {
+    //         setAllToys(data)
+    //         console.log(data);
 
 
             
-        })
-    }
+    //     })
+    // }
     return (
         <div className='h-full shadow p-5'>
             <h1 className='text-center text-4xl font-bold text-cyan-600  mb-6' >All Toys Here</h1>
@@ -56,10 +56,7 @@ const AllToy = () => {
                     type="text" className="p-1 w-1/2 border shadow" />
                 <button onClick={handleSearchText} className='border ml-3 text-1xl rounded-lg bg-cyan-700 text-white h-10 w-28'>Search</button>
             </div>
-            <div className='mb-3'>
-                <button onClick={handleAscending} className='mr-6 btn  btn-success' >Asn</button>
-                <button onClick={handleDscending} className='btn  btn-warning'>Dsn</button>
-            </div>
+
             <div>
                 <div className="overflow-x-auto">
                     <table className="table table-zebra w-full ">

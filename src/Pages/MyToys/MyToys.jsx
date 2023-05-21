@@ -45,9 +45,10 @@ const MyToys = () => {
                                 'Your file has been deleted.',
                                 'success'
                             )
-                            const remaining = mytoys.filter(toy => toy._id !== id)
+                            const remaining = mytoys.filter(toy => toy._id !==_id)
                             setMyToys(remaining);
-                            console.log(setMyToys);
+                            console.log(remaining);
+                            // console.log(setMyToys);
                         }
 
                     })
@@ -56,12 +57,34 @@ const MyToys = () => {
     }
 
 
+    const handleAscending = () => {
+        fetch(`https://sports-toy-zone.vercel.app/aescending?price=${user?.email}`)
+        .then(res=>res.json())
+        .then(data=> {
+            setMyToys(data)
+            console.log(data);
+        })
+        
+    }
+    const handleDscending = () => {
+        fetch(`https://sports-toy-zone.vercel.app/descending?price=${user?.email}`)
+        .then(res=>res.json())
+        .then(data=> {
+            setMyToys(data)
+            console.log(data);
 
+
+            
+        })
+    }
 
     return (
         <div className='h-full shadow py-8 p-5'>
             <h1 className='text-center text-4xl font-bold text-cyan-600  mb-6 ' >My Toys</h1>
-
+            <div className='mb-3'>
+                <button onClick={handleAscending} className='mr-6 btn  btn-success' >Asn</button>
+                <button onClick={handleDscending} className='btn  btn-warning'>Dsn</button>
+            </div>
             <div>
                 <div className="overflow-x-auto">
                     <table className="table table-zebra w-full ">
