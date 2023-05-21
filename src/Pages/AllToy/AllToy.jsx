@@ -66,7 +66,7 @@ const AllToy = () => {
                                 <th>#</th>
                                 <th>Seller</th>
                                 <th>Toy Name</th>
-                                {/* <th>Sub Category</th> */}
+                                <th>Sub Category</th>
                                 <th>Price</th>
                                 <th>Quantity</th>
                                 <th>View Details</th>
@@ -80,7 +80,7 @@ const AllToy = () => {
                                     <td>{index + 1}</td>
                                     <td>{toy.salername}</td>
                                     <td>{toy.name}</td>
-                                    {/* <td>{toy.sports}</td> */}
+                                    <td>{toy.category}</td>
                                     <td>{toy.price}</td>
                                     <td>{toy.quantity}</td>
                                     <td>
