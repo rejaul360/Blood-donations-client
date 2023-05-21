@@ -71,11 +71,11 @@ const ReactTabs = () => {
                         <div
                             className={toggleState === 1 ? "content  active-content" : "content"}
                         >
-                            {football?.slice(0,2).map((toy) => (
+                            {football?.slice(0, 2).map((toy) => (
                                 <div className='grid grid-cols-1 md:grid-cols-2' toy={toy._id}>
                                     <div className="hero bg-base-200">
                                         <div className="hero-content flex-col lg:flex-row">
-                                            
+
                                             <img src={toy.photo} className="max-w-sm rounded-lg shadow-2xl" />
                                             <div>
                                                 <p>{toy.price}</p>
@@ -88,48 +88,50 @@ const ReactTabs = () => {
                         </div>
                     </div>
 
-                    
+
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4 px-6" >
                         <div
                             className={toggleState === 2 ? "content  active-content" : "content"}
                         >
-                            <h2>Content 2</h2>
-                            <hr />
-                            <div className="card w-100 bg-base-100">
-                                <figure><img src="/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg" alt="Shoes" /></figure>
-                                <div className="card-body">
-                                    <h2 className="card-title">Shoes!</h2>
-                                    <p>Price </p>
-                                    <p>Rating </p>
-                                    <div className="card-actions justify-end">
-                                        <button className="btn btn-primary">Buy Now</button>
+                            {cricket?.slice(0, 2).map((toy) => (
+                                <div className='grid grid-cols-1 md:grid-cols-2' toy={toy._id}>
+                                    <div className="hero bg-base-200">
+                                        <div className="hero-content flex-col lg:flex-row">
+
+                                            <img src={toy.photo} className="max-w-sm rounded-lg shadow-2xl" />
+                                            <div>
+                                                <p>{toy.price}</p>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
+
+                            ))}
                         </div>
                     </div>
 
 
 
-                    {/* <div className="grid grid-cols-1 md:grid-cols-2 gap-4 px-6" >
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4 px-6" >
                         <div
                             className={toggleState === 3 ? "content  active-content" : "content"}
                         >
-                            <h2>Content 2</h2>
-                            <hr />
-                            <div className="card w-100 bg-base-100">
-                                <figure><img src="/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg" alt="Shoes" /></figure>
-                                <div className="card-body">
-                                    <h2 className="card-title">Shoes!</h2>
-                                    <p>Price </p>
-                                    <p>Rating </p>
-                                    <div className="card-actions justify-end">
-                                        <button className="btn btn-primary">Buy Now</button>
+                            {busketball?.slice(0, 2).map((toy) => (
+                                <div className='grid grid-cols-1 md:grid-cols-2' toy={toy._id}>
+                                    <div className="hero bg-base-200">
+                                        <div className="hero-content flex-col lg:flex-row">
+
+                                            <img src={toy.photo} className="max-w-sm rounded-lg shadow-2xl" />
+                                            <div>
+                                                <p>{toy.price}</p>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
+
+                            ))}
                         </div>
-                    </div> */}
+                    </div>
                 </div>
             </div>
         </div>

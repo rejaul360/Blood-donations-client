@@ -34,7 +34,7 @@ const Navbar = () => {
 
 
     return (
-        <div className='py-4'>
+        <div className='py-4 flex items-center content-center'>
             <div className="navbar lg:w-[1280px] mx-auto">
                 <div className="navbar-start">
                     <div className="dropdown">
@@ -45,8 +45,8 @@ const Navbar = () => {
                             {menuItems}
                         </ul>
                     </div>
-                    <Link to="/" className="logo flex items-center gap-2 h-auto w-auto">
-                        <h1 className='text-center text-4xl font-bold text-cyan-600   mb-6'>ToyZone</h1>
+                    <Link to="/" className="logo flex items-center gap-2 h-auto sm:mt-3 w-auto">
+                        <h1 className='text-center text-3xl  mt-5 font-bold text-cyan-600 mb-6'>ToyZone</h1>
                     </Link>
                 </div>
                 <div className="navbar-center hidden lg:flex">
