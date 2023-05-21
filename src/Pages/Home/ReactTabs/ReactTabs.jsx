@@ -1,12 +1,16 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import "./ReactTabs.css"
 import { Rating } from '@smastrom/react-rating'
 import '@smastrom/react-rating/style.css'
 import { Link } from 'react-router-dom';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
+import { AuthContext } from '../../../Provider/AuthProvider';
+import { toast } from 'react-toastify';
 const ReactTabs = () => {
-    const [toggleState, setToggleState] = useState(1);
+    // const [toggleState, setToggleState] = useState(1);
+
+    const{user}= useContext(AuthContext)
 
     const [football, setFootball] = useState()
     const [cricket, setCricket] = useState()
@@ -40,6 +44,15 @@ const ReactTabs = () => {
             })
     }, [])
 
+    const handleToast = () =>{
+        if(user){
+            toast('user login SuccessFully')
+        }else{
+            toast.error('user not Found')
+
+        }
+    }
+
     return (
         
         <div className='py-10'>
@@ -65,7 +78,8 @@ const ReactTabs = () => {
                                                     </div>
                                                    
                                                 </div>
-                                        <div className="card-actions ">
+                                        <div onClick={handleToast} className="card-actions ">
+
                                         <Link to={`/reactDetais/${toy._id}`}><button className='btn btn-info mt-3'>Details</button></Link>
                                         </div>
                                     </div>
