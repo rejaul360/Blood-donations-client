@@ -11,8 +11,8 @@ const Banner = () => {
                             <h2 className='text-2xl md:text-5xl font-bold'> Kides Toy Zone For Affordable Price </h2>
                             <p>There are many variations of toys of  available, Our products is the best products in the market</p>
                             <div>
-                                <button className="btn btn-primary mr-5">More Toys</button>
-                                <button className="btn btn-outline btn-secondary">Upcoming Toys</button>
+                                <button className="btn btn-primary mr-5 py-2">More Toys</button>
+                                <button className="btn btn-secondary mt-3">Upcoming</button>
                             </div>
                         </div>
                     </div>
