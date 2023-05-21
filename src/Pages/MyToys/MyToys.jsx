@@ -14,7 +14,7 @@ const MyToys = () => {
     useEffect(() => {
         if (user) {
             console.log(user.email)
-            fetch(`http://localhost:5000/myToy/${user.email}`)
+            fetch(`https://sports-toy-zone.vercel.app/myToy/${user.email}`)
                 .then(res => res.json()
                     .then(data => {
                         setMyToys(data);
@@ -33,7 +33,7 @@ const MyToys = () => {
             confirmButtonText: 'Yes, delete it!'
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`http://localhost:5000/allToy/${_id}`, {
+                fetch(`https://sports-toy-zone.vercel.app/allToy/${_id}`, {
                     method: "DELETE"
                 })
                     .then(res => res.json())

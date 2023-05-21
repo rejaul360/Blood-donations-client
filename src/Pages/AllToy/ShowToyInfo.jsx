@@ -1,5 +1,7 @@
 import React from 'react';
 import { Link, useLoaderData } from 'react-router-dom';
+import { Rating } from '@smastrom/react-rating'
+import '@smastrom/react-rating/style.css'
 
 const ShowToyInfo = () => {
 
@@ -17,12 +19,16 @@ const ShowToyInfo = () => {
                             <img src={photo} className="max-w-xl rounded-lg shadow-2xl" />
                         </div>
                         <div className=' shadow p-8 space-y-3'>
-                            <h1 className="text-5xl font-bold">Toy Name: {name}</h1>
-                            <p>Seller Name: {salername}</p>
+                            <h1 className="text-3xl text-red-600 font-bold">Toy : {name}</h1>
+                            <p>Seller : {salername}</p>
                             <p>Price : {price} </p>
                             <p>Quantity : {quantity}  </p>
                             <p>Category : {category}  </p>
-                            <p>Ratings : {rating}  </p>
+                            <div className='flex items-center'>
+                            <p>Ratings :  </p>
+                            <Rating style={{ maxWidth: 150 }} value={rating} readOnly/>
+                            </div>
+                            
                             <p>Description : {description}  </p>
                             <Link to='/alltoy'>
                                 <button className="btn btn-primary mt-4">Go Toys</button>

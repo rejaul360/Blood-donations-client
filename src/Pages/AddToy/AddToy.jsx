@@ -29,7 +29,7 @@ const AddToy = () => {
         console.log(addToy);
 
         // send data to the server
-        fetch('http://localhost:5000/postToy', {
+        fetch('https://sports-toy-zone.vercel.app/postToy', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

@@ -46,13 +46,13 @@ const router = createBrowserRouter([
         {
             path:'/updateInfo/:id',
             element:<UpdatetoyInfo></UpdatetoyInfo>,
-            loader:({params})=> fetch(`http://localhost:5000/allToy/${params.id}`)
+            loader:({params})=> fetch(`https://sports-toy-zone.vercel.app/allToy/${params.id}`)
             
         },
         {
             path:'/showdetais/:id',
             element:<ShowToyInfo></ShowToyInfo>,
-            loader:({params})=> fetch(`http://localhost:5000/allToy/${params.id}`)
+            loader:({params})=> fetch(`https://sports-toy-zone.vercel.app/allToy/${params.id}`)
             
         },
 

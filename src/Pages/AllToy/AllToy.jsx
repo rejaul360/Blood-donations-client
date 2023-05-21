@@ -11,7 +11,7 @@ const AllToy = () => {
     const [alltoys, setAllToys] = useState([])
 
     useEffect(() => {
-        fetch('http://localhost:5000/allToy')
+        fetch('https://sports-toy-zone.vercel.app/allToy')
             .then(res => res.json())
             .then(data => {
                 setAllToys(data)
@@ -20,14 +20,14 @@ const AllToy = () => {
     }, [user])
 
     const handleSearchText = () => {
-        fetch(`http://localhost:5000/serchByName/${searchText}`)
+        fetch(`https://sports-toy-zone.vercel.app/serchByName/${searchText}`)
             .then(res => res.json())
             .then(data => {
                 setAllToys(data)
             })
     }
     const handleAscending = () => {
-        fetch(`http://localhost:5000/aescending?price=${user?.price}`)
+        fetch(`https://sports-toy-zone.vercel.app/aescending?price=${user?.price}`)
         .then(res=>res.json())
         .then(data=> {
             // setAllToys(data)
@@ -36,7 +36,7 @@ const AllToy = () => {
         
     }
     const handleDscending = () => {
-        fetch(`http://localhost:5000/descending?price=${user?.price}`)
+        fetch(`https://sports-toy-zone.vercel.app/descending?price=${user?.price}`)
         .then(res=>res.json())
         .then(data=> {
             // setAllToys(data)

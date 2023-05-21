@@ -36,7 +36,7 @@ const UpdatetoyInfo = () => {
 
         // ---------------send data to the server----------->
         
-        fetch(`http://localhost:5000/allToy/${_id}`, {
+        fetch(`https://sports-toy-zone.vercel.app/allToy/${_id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'
