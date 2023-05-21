@@ -22,7 +22,7 @@ const MyToys = () => {
         }
     }, [user])
     const handleToyDelete = (_id) => {
-        console.log(_id);
+        // console.log(_id);
         Swal.fire({
             title: 'Are you sure?',
             text: "You won't be able to revert this!",
@@ -33,8 +33,6 @@ const MyToys = () => {
             confirmButtonText: 'Yes, delete it!'
         }).then((result) => {
             if (result.isConfirmed) {
-
-
                 fetch(`http://localhost:5000/allToy/${_id}`, {
                     method: "DELETE"
                 })
@@ -47,7 +45,11 @@ const MyToys = () => {
                                 'Your file has been deleted.',
                                 'success'
                             )
+                            const remaining = mytoys.filter(toy => toy._id !== id)
+                            setMyToys(remaining);
+                            console.log(setMyToys);
                         }
+
                     })
             }
         })
@@ -57,7 +59,7 @@ const MyToys = () => {
 
 
     return (
-        <div className='h-full shadow py-8'>
+        <div className='h-full shadow py-8 p-5'>
             <h1 className='text-center text-4xl font-bold text-cyan-600  mb-6 ' >My Toys</h1>
 
             <div>
@@ -70,7 +72,7 @@ const MyToys = () => {
                                 <th>Seller</th>
                                 <th>Toy Name</th>
                                 <th>Price</th>
-                                <th>description</th>
+                                {/* <th>description</th> */}
                                 <th>Ouantity</th>
                                 <th>rating</th>
                                 <th>Edit</th>
@@ -85,7 +87,7 @@ const MyToys = () => {
                                     <td>{toy.salername}</td>
                                     <td>{toy.name}</td>
                                     <td>{toy.price}</td>
-                                    <td>{toy.description}</td>
+                                    {/* <td>{toy.description}</td> */}
                                     <td>{toy.quantity}</td>
                                     <td>{toy.rating}</td>
                                     <td>

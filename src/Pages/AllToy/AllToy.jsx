@@ -27,7 +27,7 @@ const AllToy = () => {
             })
     }
     const handleAscending = () => {
-        fetch(`http://localhost:5000/aescending?email=${user?.email}`)
+        fetch(`http://localhost:5000/aescending?price=${user?.price}`)
         .then(res=>res.json())
         .then(data=> {
             // setAllToys(data)
@@ -36,7 +36,7 @@ const AllToy = () => {
         
     }
     const handleDscending = () => {
-        fetch(`http://localhost:5000/descending?email=${user?.email}`)
+        fetch(`http://localhost:5000/descending?price=${user?.price}`)
         .then(res=>res.json())
         .then(data=> {
             // setAllToys(data)
@@ -47,17 +47,18 @@ const AllToy = () => {
         })
     }
     return (
-        <div className='h-full shadow'>
+        <div className='h-full shadow p-5'>
             <h1 className='text-center text-4xl font-bold text-cyan-600  mb-6' >All Toys Here</h1>
-            <div>
-                <button onClick={handleAscending} className='mr-6' >Asn</button>
-                <button onClick={handleDscending}>Dsn</button>
-            </div>
+
             <div className="search-box p-2 text-center mb-6">
                 <input
                     onChange={(e) => setSearchText(e.target.value)}
                     type="text" className="p-1 w-1/2 border shadow" />
                 <button onClick={handleSearchText} className='border ml-3 text-1xl rounded-lg bg-cyan-700 text-white h-10 w-28'>Search</button>
+            </div>
+            <div className='mb-3'>
+                <button onClick={handleAscending} className='mr-6 btn  btn-success' >Asn</button>
+                <button onClick={handleDscending} className='btn  btn-warning'>Dsn</button>
             </div>
             <div>
                 <div className="overflow-x-auto">

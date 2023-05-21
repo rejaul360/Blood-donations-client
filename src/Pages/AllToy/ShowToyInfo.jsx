@@ -5,7 +5,7 @@ const ShowToyInfo = () => {
 
     const showtoyInfo = useLoaderData()
 
-    const { name, image, quantity, salername, price, category, description, postedBy, rating } = showtoyInfo
+    const { name, image, quantity, photo, salername, price, category, description, rating } = showtoyInfo
 
     return (
         <div>
@@ -13,7 +13,9 @@ const ShowToyInfo = () => {
             <div>
                 <div className="hero min-h-screen bg-base-200">
                     <div className="hero-content flex-col lg:flex-row">
-                        <img src={image} className="max-w-xl rounded-lg shadow-2xl" />
+                        <div>
+                            <img src={photo} className="max-w-xl rounded-lg shadow-2xl" />
+                        </div>
                         <div className=' shadow p-8 space-y-3'>
                             <h1 className="text-5xl font-bold">Toy Name: {name}</h1>
                             <p>Seller Name: {salername}</p>
@@ -23,7 +25,7 @@ const ShowToyInfo = () => {
                             <p>Ratings : {rating}  </p>
                             <p>Description : {description}  </p>
                             <Link to='/alltoy'>
-                                <button className="btn btn-primary">Go Toys</button>
+                                <button className="btn btn-primary mt-4">Go Toys</button>
                             </Link>
 
                         </div>

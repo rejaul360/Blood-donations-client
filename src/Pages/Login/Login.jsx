@@ -48,6 +48,7 @@ const Login = () => {
         googleSingIn(googleProvider)
             .then(result => {
                 console.log(result.user);
+                navigate(from, { replace: true });
             })
             .then(error => {
                 console.log(error);
