@@ -1,5 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import "./ReactTabs.css"
+import { Rating } from '@smastrom/react-rating'
+import '@smastrom/react-rating/style.css'
+import { Link } from 'react-router-dom';
 const ReactTabs = () => {
     const [toggleState, setToggleState] = useState(1);
 
@@ -50,86 +53,109 @@ const ReactTabs = () => {
                         className={toggleState === 1 ? "tabs active-tabs" : "tabs"}
                         onClick={() => toggleTab(1)}
                     >
-                        Football
+                       Cricket
                     </button>
                     <button
                         className={toggleState === 2 ? "tabs active-tabs" : "tabs"}
                         onClick={() => toggleTab(2)}
                     >
-                        Cricket
+                        BusketBall
                     </button>
                     <button
                         className={toggleState === 3 ? "tabs active-tabs" : "tabs"}
                         onClick={() => toggleTab(3)}
                     >
-                        BusketBall
+                        Football
                     </button>
                 </div>
 
                 <div className="content-tabs">
-                    <div className="grid grid-cols-2 px-6 mt-14 gap-4 " >
+                    <div className="" >
                         <div
                             className={toggleState === 1 ? "content  active-content" : "content"}
                         >
-                            {football?.slice(0, 2).map((toy) => (
-                                <div className='grid grid-cols-1 md:grid-cols-2' toy={toy._id}>
-                                    <div className="hero bg-base-200">
-                                        <div className="hero-content flex-col lg:flex-row">
+                            <div className='grid grid-cols-1 md:grid-cols-2 mt-7'>
+                                {cricket?.slice(1, 3).map((toy) => (
+                                    <div className='grid grid-cols-1' toy={toy._id}>
+                                        <div className="hero ">
+                                            <div className="hero-content flex lg:flex-row">
 
-                                            <img src={toy.photo} className="max-w-sm rounded-lg shadow-2xl" />
-                                            <div>
-                                                <p>{toy.price}</p>
+                                                <img src={toy.photo} className="max-w-sm rounded-lg shadow-2xl" data-aos="zoom-out-right" />
+                                                <div className='space-y-3 ms-3'> 
+                                                    <p>{toy.name}</p>
+                                                    <p>{toy.price}</p>
+                                                    <div className='flex'>
+                                                        <p>Ratings:</p><Rating style={{ maxWidth: 150 }} value={toy.rating} readOnly />
+                                                    </div>
+                                                    <Link to={`/reactDetais/${toy._id}`}><button className='btn btn-info mt-3'>Details</button></Link>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
 
-                            ))}
+                                ))}
+                            </div>
                         </div>
                     </div>
 
 
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4 px-6" >
+                    <div className="" >
                         <div
                             className={toggleState === 2 ? "content  active-content" : "content"}
                         >
-                            {cricket?.slice(0, 2).map((toy) => (
-                                <div className='grid grid-cols-1 md:grid-cols-2' toy={toy._id}>
-                                    <div className="hero bg-base-200">
-                                        <div className="hero-content flex-col lg:flex-row">
+                            <div className='grid grid-cols-1 md:grid-cols-2'>
+                                {busketball?.slice(0,2).map((toy) => (
+                                    <div className='grid grid-cols-1' toy={toy._id}>
+                                        <div className="hero ">
+                                            <div className="hero-content flex lg:flex-row">
 
-                                            <img src={toy.photo} className="max-w-sm rounded-lg shadow-2xl" />
-                                            <div>
-                                                <p>{toy.price}</p>
+                                                <img src={toy.photo} className="max-w-sm rounded-lg shadow-2xl" data-aos="zoom-out-right"/>
+                                                <div className='space-y-3 ms-3'>
+                                                    <p>{toy.name}</p>
+                                                    <p>{toy.price}</p>
+                                                    <div className='flex items-center'>
+                                                        <p>Ratings :  </p>
+                                                        <Rating style={{ maxWidth: 150 }} value={toy.rating} readOnly />
+                                                    </div>
+                                                    <Link to={`/reactDetais/${toy._id}`}><button className='btn btn-info mt-3'>Details</button></Link>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
 
-                            ))}
+                                ))}
+                            </div>
                         </div>
                     </div>
 
 
 
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4 px-6" >
+                    <div className="" >
                         <div
                             className={toggleState === 3 ? "content  active-content" : "content"}
                         >
-                            {busketball?.slice(0, 2).map((toy) => (
-                                <div className='grid grid-cols-1 md:grid-cols-2' toy={toy._id}>
-                                    <div className="hero bg-base-200">
-                                        <div className="hero-content flex-col lg:flex-row">
+                            <div className='grid grid-cols-1 md:grid-cols-2'>
+                                {football?.slice(0, 2).map((toy) => (
+                                    <div className='grid grid-cols-1' toy={toy._id}>
+                                        <div className="hero ">
+                                            <div className="hero-content flex lg:flex-row">
 
-                                            <img src={toy.photo} className="max-w-sm rounded-lg shadow-2xl" />
-                                            <div>
-                                                <p>{toy.price}</p>
+                                                <img src={toy.photo} className="max-w-sm rounded-lg shadow-2xl" data-aos="zoom-out-right"/>
+                                                <div className='space-y-3 ms-3'>
+                                                    <p>{toy.name}</p>
+                                                    <p>{toy.price}</p>
+                                                    <div className='flex items-center'>
+                                                        <p>Ratings :  </p>
+                                                        <Rating style={{ maxWidth: 150 }} value={toy.rating} readOnly />
+                                                    </div>
+                                                    <Link to={`/reactDetais/${toy._id}`}><button className='btn btn-info mt-3'>Details</button></Link>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
 
-                            ))}
+                                ))}
+                            </div>
                         </div>
                     </div>
                 </div>

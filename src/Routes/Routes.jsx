@@ -11,6 +11,7 @@ import AllToy from "../Pages/AllToy/AllToy";
 import MyToys from "../Pages/MyToys/MyToys";
 import UpdatetoyInfo from "../Pages/UpdatetoyInfo/UpdatetoyInfo";
 import ShowToyInfo from "../Pages/AllToy/ShowToyInfo";
+import ReactTabInfo from "../Pages/Home/ReactTabs/ReactTabInfo";
 
 
 const router = createBrowserRouter([
@@ -54,6 +55,11 @@ const router = createBrowserRouter([
             element:<ShowToyInfo></ShowToyInfo>,
             loader:({params})=> fetch(`https://sports-toy-zone.vercel.app/allToy/${params.id}`)
             
+        },
+        {
+            path: '/reactDetais/:id',
+            element:  <PrivateRoutes><ReactTabInfo></ReactTabInfo></PrivateRoutes>,
+            loader:({params})=> fetch(`https://sports-toy-zone.vercel.app/allToy/${params.id}`)
         },
 
         {

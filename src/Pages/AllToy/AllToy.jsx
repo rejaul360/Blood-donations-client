@@ -77,7 +77,7 @@ const AllToy = () => {
                         </thead>
                         <tbody>
 
-                            {alltoys?.map((toy, index) => (
+                            {alltoys?.slice(0,19).map((toy, index) => (
                                 <tr toy={toy._id}>
 
                                     <td>{index + 1}</td>
