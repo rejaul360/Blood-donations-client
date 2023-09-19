@@ -92,14 +92,14 @@ const MyToys = () => {
                         <thead>
                             <tr>
                                 <th>#</th>
-                                <th>Seller</th>
-                                <th>Toy Name</th>
-                                <th>Price</th>
+                                <th>ইউজার</th>
+                                <th>রক্তদাতার নাম</th>
+                                <th>জেলা</th>
                                 {/* <th>description</th> */}
-                                <th>Ouantity</th>
-                                <th>rating</th>
-                                <th>Edit</th>
-                                <th>Delete</th>
+                                <th>বিভাগ</th>
+                                <th>কতবার রক্ত দিয়েছেন</th>
+                                <th>আপডেট</th>
+                                <th>ডিলিট</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -116,14 +116,14 @@ const MyToys = () => {
                                     <td>
 
                                         <Link to={`/updateInfo/${toy._id}`}>
-                                            <button className='btn btn-outline btn-success'>
+                                            <button className='btn  btn-success'>
                                                 Update
                                             </button>
                                         </Link>
                                     </td>
                                     <td>
 
-                                        <button onClick={() => handleToyDelete(toy._id)} className='btn btn-outline btn-error'>Delete</button>
+                                        <button onClick={() => handleToyDelete(toy._id)} className='btn btn-error'>Delete</button>
                                     </td>
                                 </tr>
                             ))}

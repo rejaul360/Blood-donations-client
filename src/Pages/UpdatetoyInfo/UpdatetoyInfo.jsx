@@ -49,7 +49,7 @@ const UpdatetoyInfo = () => {
                 if (data.insertedId) {
                     Swal.fire({
                         title: 'Success!',
-                        text: 'Toy Added Successfully',
+                        text: ' Added Successfully',
                         icon: 'success',
                         confirmButtonText: 'Done'
                     })
@@ -60,7 +60,7 @@ const UpdatetoyInfo = () => {
     }
 
     return (
-        <div className="bg-[#adfedd] p-24 rounded-3xl py-7 shadow-lg">
+        <div className=" p-4 md:px-24 rounded-3xl py-2 shadow-lg">
             <h2 className="text-3xl font-extrabold text-center py-6">Update Toy Informations {name}</h2>
             <form onSubmit={handleUpdatetoys}>
                 {/* form name and quantity row */}
@@ -77,7 +77,7 @@ const UpdatetoyInfo = () => {
                 <div className="md:flex mb-8">
                     <div className="form-control md:w-1/2">
                         <label className="label">
-                            <span className="label-text">name</span>
+                            <span className="label-text">রক্তদাতার নাম</span>
                         </label>
                         <label className="input-group">
                             <input type="text" name="name" placeholder="toy name" className="input input-bordered w-full" defaultValue={name}/>
@@ -85,10 +85,10 @@ const UpdatetoyInfo = () => {
                     </div>
                     <div className="form-control md:w-1/2 ml-4">
                         <label className="label">
-                            <span className="label-text">Available Quantity</span>
+                            <span className="label-text"> বিভাগ</span>
                         </label>
                         <label className="input-group">
-                            <input type="text" name="quantity" placeholder="Available Quantity" className="input input-bordered w-full" defaultValue={quantity}/>
+                            <input type="text" name="quantity" placeholder="বিভাগ" className="input input-bordered w-full" defaultValue={quantity}/>
                         </label>
                     </div>
                 </div>
@@ -114,28 +114,28 @@ const UpdatetoyInfo = () => {
                 <div className="md:flex mb-8">
                     <div className="form-control md:w-1/2">
                         <label className="label">
-                            <span className="label-text">Price</span>
+                            <span className="label-text">ঠিকানা, জেলা</span>
                         </label>
                         <label className="input-group">
-                            <input type="number" name="price" placeholder="Price" className="input input-bordered w-full" defaultValue={price}/>
+                            <input type="number" name="price" placeholder="জেলা" className="input input-bordered w-full" defaultValue={price}/>
                         </label>
                     </div>
                     <div className="form-control md:w-1/2 ml-4">
                         <label className="label">
-                            <span className="label-text">Rating</span>
+                            <span className="label-text">কতবার রক্ত দিয়েছেন</span>
                         </label>
                         <label className="input-group">
-                            <input type="number" name="rating" placeholder="Rating" className="input input-bordered w-full" defaultValue={rating} />
+                            <input type="number" name="rating" placeholder="কতবার রক্ত দিয়েছেন" className="input input-bordered w-full" defaultValue={rating} />
                         </label>
                     </div>
                 </div>
                 <div className="md:flex mb-8">
                     <div className="form-control md:w-full ">
                         <label className="label">
-                            <span className="label-text">Details</span>
+                            <span className="label-text">শেষবার রক্তদানের তারিখ</span>
                         </label>
                         <label className="input-group">
-                            <input type="text" name="description" placeholder="Details" className="input input-bordered w-full" defaultValue={description} />
+                            <input type="date" name="description" placeholder=" তারিখ" className="input input-bordered w-full" defaultValue={description} />
                         </label>
                     </div>
                 </div>

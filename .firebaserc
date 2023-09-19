@@ -1,5 +1,8 @@
 {
   "projects": {
-    "default": "chef-recipe-hunter-1af5d"
-  }
+    "default": "blood-donation-99816",
+    "blood-donation": "blood-donation-99816"
+  },
+  "targets": {},
+  "etags": {}
 }

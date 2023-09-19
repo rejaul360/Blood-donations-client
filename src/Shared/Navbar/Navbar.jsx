@@ -16,14 +16,14 @@ const Navbar = () => {
     // console.log(user);
 
     const menuItems = <>
-        <li className='mr-1 font-bold'> <Link to="/">Home</Link></li>
-        <li className='mr-1 font-bold'> <Link to="/alltoy">All-Toy</Link></li>
-        <li className='font-bold'><Link to="/blog">Blog</Link></li>
+
+        <li className='mr-1 md:mr-6 font-bold'> <Link to="/alltoy">All-Toy</Link></li>
+        {/* <li className='font-bold'><Link to="/blog">Blog</Link></li> */}
         {user ?
             <>
 
-                <li className='font-bold'><Link to="/addtoy">Add_Toys</Link></li>
-                <li className='font-bold'><Link to="/mytoy">My_Toy</Link></li>
+                <li className='font-bold mr-1 md:mr-6'><Link to="/addtoy">Add_Toys</Link></li>
+                <li className='font-bold mr-1 md:mr-6'><Link to="/mytoy">My_Toy</Link></li>
             </> :
             <>
 
@@ -46,7 +46,7 @@ const Navbar = () => {
                         </ul>
                     </div>
                     <Link to="/" className="logo flex items-center gap-2 h-auto sm:mt-3 w-auto">
-                        <h1 className='text-center text-3xl  mt-5 font-bold text-cyan-600 mb-6'>ToyZone</h1>
+                        <h1 className='text-center text-3xl  mt-5 font-bold text-red-600 mb-6'>রক্তদান</h1>
                     </Link>
                 </div>
                 <div className="navbar-center hidden lg:flex">
@@ -57,7 +57,7 @@ const Navbar = () => {
                 <div className="navbar-end" >
                     {user ?
                         <>
-                            <button onClick={handleLogout} className='btn btn-ghost capitalize'>Logout</button>
+                            <button onClick={handleLogout} className='btn btn-ghost capitalize md:text-xl'>Logout</button>
                         </> :
                         <>
                             <button className='mx-4 capitalize'><Link to='/singup'>Register</Link></button>
@@ -68,7 +68,7 @@ const Navbar = () => {
                     }
                     <span>{user?.photoURL?
                         <div className="tooltip tooltip-left tooltip-warning" data-tip={user?.displayName || user?.email}>
-                            <img style={{ width: "45px", borderRadius: "50%" }} src={user.photoURL} alt='' />
+                            <img style={{ width: "45px", borderRadius: "50%" }} src={user?.photoURL} alt='' />
 
                         </div>
                         :

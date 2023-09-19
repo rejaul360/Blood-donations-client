@@ -64,12 +64,12 @@ const AllToy = () => {
                         <thead>
                             <tr>
                                 <th>#</th>
-                                <th>Seller</th>
-                                <th>Toy Name</th>
-                                <th>Sub Category</th>
-                                <th>Price</th>
-                                <th>Quantity</th>
-                                <th>View Details</th>
+                                <th>ইউজার</th>
+                                <th>রক্তদাতার নাম</th>
+                                <th>রক্তের ধরন</th>
+                                <th>জেলা</th>
+                                <th>বিভাগ</th>
+                                <th>ডিটেইল</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -86,7 +86,7 @@ const AllToy = () => {
                                     <td>
 
                                         <Link to={`/showdetais/${toy._id}`}>
-                                            <button className='btn btn-outline btn-success font-bold'>Details</button>
+                                            <button className='btn  btn-success font-bold'>Details</button>
                                         </Link>
 
                                     </td>
