@@ -10,13 +10,13 @@ import Footer from '../../../Shared/Footer/Footer';
 const Home = () => {
     useTitle('Home')
     return (
-        <div>
+        <div >
           <Banner></Banner>
           {/* <Gallery></Gallery> */}
-          <ReactTabs></ReactTabs>
+          {/* <ReactTabs></ReactTabs> */}
           {/* <BestToy></BestToy>
           <ToyCollection></ToyCollection> */}
-          <Footer></Footer>
+          {/* <Footer></Footer> */}
           
         </div>
     );

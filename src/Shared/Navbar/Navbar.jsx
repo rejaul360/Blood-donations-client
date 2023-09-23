@@ -13,17 +13,17 @@ const Navbar = () => {
             })
             .catch(error => console.log(error))
     }
-    // console.log(user);
+    console.log(user);
 
     const menuItems = <>
 
-        <li className='mr-1 md:mr-6 font-bold'> <Link to="/alltoy">All-Toy</Link></li>
+        <li className='mr-1 md:mr-6 font-bold'> <Link to="/alltoy">সকল রক্তদাতা</Link></li>
         {/* <li className='font-bold'><Link to="/blog">Blog</Link></li> */}
         {user ?
             <>
 
-                <li className='font-bold mr-1 md:mr-6'><Link to="/addtoy">Add_Toys</Link></li>
-                <li className='font-bold mr-1 md:mr-6'><Link to="/mytoy">My_Toy</Link></li>
+                <li className='font-bold mr-1 md:mr-6'><Link to="/addtoy">নতুন যোগদান</Link></li>
+                <li className='font-bold mr-1 md:mr-6'><Link to="/mytoy">ইউজার কালেকশন</Link></li>
             </> :
             <>
 
@@ -34,7 +34,7 @@ const Navbar = () => {
 
 
     return (
-        <div className='py-4 flex items-center content-center'>
+        <div style={{backgroundColor:'#F6F6F6'}} className='py-4 flex items-center content-center  '>
             <div className="navbar lg:w-[1280px] mx-auto">
                 <div className="navbar-start">
                     <div className="dropdown">
@@ -46,11 +46,14 @@ const Navbar = () => {
                         </ul>
                     </div>
                     <Link to="/" className="logo flex items-center gap-2 h-auto sm:mt-3 w-auto">
-                        <h1 className='text-center text-3xl  mt-5 font-bold text-red-600 mb-6'>রক্তদান</h1>
+                        <img style={{borderRadius: "50%" }} src="https://www.nicepng.com/png/detail/117-1179838_blood-donation-camp-blood-donation-logo-png.png"
+                        className='w-8 md:w-9'
+                        alt="" />
+                        <h1 style={{color: '#C60315'}} className='text-center md:text-3xl  mt-7 font-bold  mb-6'>রক্তদান</h1>
                     </Link>
                 </div>
                 <div className="navbar-center hidden lg:flex">
-                    <ul className="menu menu-horizontal px-1 mr-5">
+                    <ul className="menu menu-horizontal mt-3 px-1 mr-5">
                         {menuItems}
                     </ul>
                 </div>

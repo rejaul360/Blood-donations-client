@@ -21,12 +21,17 @@ const AddToy = () => {
         const category = form.category.value;
         const description = form.description.value;
         const photo = form.image.value;
+        const phone = form.phone.value;
+        const boyos = form.boyos.value;
+        const details = form.details.value;
+        const parmanent = form.parmanent.value;
+        const present = form.present.value;
 
 
 
-        const addToy = { name, quantity, salername, price, category, description, photo, postedBy, rating }
+        const addToy = { name, quantity, salername, price, category, description, photo, postedBy, rating, phone, boyos, details,parmanent,present }
 
-        console.log(addToy);
+        // console.log(addToy);
 
         // send data to the server
         fetch('https://sports-toy-zone.vercel.app/postToy', {
@@ -38,7 +43,7 @@ const AddToy = () => {
         })
             .then(res => res.json())
             .then(data => {
-                console.log(data);
+                // console.log(data);
                 if (data.insertedId) {
                     Swal.fire({
                         title: 'Success!',
@@ -54,7 +59,7 @@ const AddToy = () => {
 
     return (
         <div className=" p-4 md:p-24 rounded-3xl py-7 shadow-lg">
-            <h2 className="text-center text-4xl font-bold   mb-6">রক্তদাতার তথ্য </h2>
+            <h2 style={{color: '#C60315'}} className="text-center text-4xl font-bold   mb-6">রক্তদাতার তথ্য </h2>
             <form onSubmit={handleAddtoys}>
                 {/* form name and quantity row */}
                 <div className="mb-8">
@@ -63,7 +68,7 @@ const AddToy = () => {
                             <span className="label-text  " > রক্তদাতার ছবি </span>
                         </label>
                         <label className="input-group">
-                            <input type="file" name="image" placeholder="ছবি " className="  file-input file-input-bordered w-full" required />
+                            <input type="text" name="image" placeholder="ছবি " className=" p-4 file-input file-input-bordered w-full" required />
                         </label>
                     </div>
                 </div>
@@ -132,6 +137,43 @@ const AddToy = () => {
                         </label>
                     </div>
                 </div>
+                <div className="md:flex mb-8">
+                    <div className="form-control md:w-1/2">
+                        <label className="label">
+                            <span className="label-text ">স্থায়ী ঠিকানা</span>
+                        </label>
+                        <label className="input-group">
+                            <input type="text" name="parmanent" placeholder="স্থায়ী ঠিকানা" className="input input-bordered w-full" />
+                        </label>
+                    </div>
+                    <div className="form-control sm:w-full md:w-1/2 md:ml-4">
+                        <label className="label">
+                            <span className="label-text ">বর্তমান ঠিকানা</span>
+                        </label>
+                        <label className="input-group">
+                            <input type="text" name="present" placeholder="বর্তমান ঠিকানা " className="input input-bordered w-full" />
+                        </label>
+                    </div>
+                </div>
+                <div className="md:flex mb-8 ">
+
+                    <div className="form-control md:w-1/2 ">
+                        <label className="label">
+                            <span className="label-text ">মোবাইল নাম্বার </span>
+                        </label>
+                        <label className="input-group">
+                            <input type="number" name="phone" placeholder="মোবাইল নাম্বার " className="input input-bordered w-full" required />
+                        </label>
+                    </div>
+                    <div className="form-control md:w-1/2 md:ml-4">
+                        <label className="label">
+                            <span className="label-text ">বয়স</span>
+                        </label>
+                        <label className="input-group">
+                            <input type="number" name="boyos" placeholder="বয়স" className="input input-bordered w-full" />
+                        </label>
+                    </div>
+                </div>
                 <div className="md:flex mb-8 ">
 
                     <div className="form-control md:w-1/2 ">
@@ -151,8 +193,25 @@ const AddToy = () => {
                         </label>
                     </div>
                 </div>
+                <div>
+                    <div className="form-control w-full">
+                        <label className="label">
+                            <span className="label-text">কেনো আপনি স্বেচ্ছায় রক্তদানে ইচ্ছুক</span>
+                        </label>
+                        <label className="input-group">
+                            <textarea
+                                className='w-full border border-black p-4'
+                                name="details"
+                                id=""
+                                cols="30"
+                                rows="10"
+                                placeholder='আপনার মতামত লিখুন'
+                            ></textarea>
+                        </label>
+                    </div>
 
-                <input type="submit" value="SUBMIT" className="btn btn-outline btn-error text-white text-2xl w-full" />
+                </div>
+                <input type="submit" value="SUBMIT" style={{backgroundColor: '#C60315'}}  className="border mt-4 text-1xl rounded-lg  text-white h-10 w-full sm:w-28 " />
 
             </form>
         </div>

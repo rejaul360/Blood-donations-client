@@ -1,84 +1,64 @@
+/* Base styles for all devices */
 .form_container {
-    width: 600px;
+    width: 100%;
+    max-width: 600px;
     background: #FFFFFF;
     border-radius: 8px;
     margin: 50px auto;
-
+    padding: 20px; /* Add some padding for better mobile experience */
 }
 
 .title {
     font-family: 'Lato';
     font-style: normal;
     font-weight: 500;
-    font-size: 39px;
+    font-size: 32px; /* Adjust font size for smaller screens */
     text-align: center;
-    line-height: 42px;
+    line-height: 36px; /* Adjust line height for smaller screens */
     letter-spacing: 0.0025em;
 }
 
 .form_control {
-    margin-left: 85px;
+    margin-left: 0; /* Reset left margin for all screens */
     margin-top: 20px;
 }
 
 .form_control .label {
-    display: block;
     font-family: 'Lato';
     font-style: normal;
     font-weight: 400;
-    font-size: 17px;
-    line-height: 20px;
+    font-size: 15px; /* Adjust font size for smaller screens */
+    line-height: 18px; /* Adjust line height for smaller screens */
     letter-spacing: 0.0015em;
     color: #2A414F;
-    /* margin-bottom: 9px; */
-
-
 }
 
 .form_container input {
     box-sizing: border-box;
-    width: 415px;
+    width: 100%;
     height: 45px;
     border: 1px solid #95A0A7;
     border-radius: 5px;
     padding: 0 15px;
-
 }
 
 .submit_btn {
-    width: 415px;
+    width: 100%;
     height: 55px;
     margin-top: 25px;
-    margin-left: 85px;
-    background: #31befa;
-    border-radius: 5px;
-    border: 0;
-    font-family: 'Lato';
-    font-style: normal;
-    font-weight: 600;
-    font-size: 21px;
-    line-height: 25px;
-    letter-spacing: 0.0015em;
-    color: white;
-    transition: all .3s ease-in;
-
-}
-
-.submit_btn:hover {
-    background: #f23f7e;
+    margin-left: 0; /* Reset left margin for all screens */
 }
 
 .new_account {
     font-family: 'Lato';
     font-style: normal;
     font-weight: 400;
-    font-size: 17px;
-    line-height: 20px;
+    font-size: 15px; /* Adjust font size for smaller screens */
+    line-height: 18px; /* Adjust line height for smaller screens */
     letter-spacing: 0.0015em;
     color: #2A414F;
-    margin-left: 85px;
+    margin-left: 0; /* Reset left margin for all screens */
     margin-top: 20px;
-
 }
 
 .divide_container {
@@ -89,28 +69,89 @@
 }
 
 .divide {
-    width: 180px;
+    width: 100%;
     height: 1px;
     background-color: #95A0A7;
     font-family: 'Lato';
     font-style: normal;
     font-weight: 400;
-    font-size: 17px;
-    line-height: 20px;
+    font-size: 15px; /* Adjust font size for smaller screens */
+    line-height: 18px; /* Adjust line height for smaller screens */
     letter-spacing: 0.005em;
 }
 
-.social-btn{
-    width:400px ;
+.social-btn {
+    width: 100%;
     height: 50px;
     background-color: #0b5b83;
     display: block;
-    margin: 0 auto;
+    margin: 20px auto; /* Center the button and add more margin for mobile */
     color: #fff;
-    margin-top:20px ;
 }
 
-.social-img{
-    width:35px;
-    height:35px;
+.social-img {
+    width: 35px;
+    height: 35px;
+}
+
+/* Media query for screens with a maximum width of 768px (typical for tablets) */
+@media (max-width: 768px) {
+    .title {
+        font-size: 28px;
+        line-height: 32px;
+    }
+
+    .form_control .label {
+        font-size: 14px;
+        line-height: 16px;
+    }
+
+    .form_container input {
+        height: 40px;
+    }
+
+    .submit_btn {
+        height: 50px;
+    }
+
+    .new_account {
+        font-size: 14px;
+        line-height: 16px;
+    }
+
+    .divide {
+        font-size: 14px;
+        line-height: 16px;
+    }
+}
+
+/* Media query for screens with a maximum width of 480px (typical for mobile phones) */
+@media (max-width: 480px) {
+    .title {
+        font-size: 24px;
+        line-height: 28px;
+    }
+
+    .form_control .label {
+        font-size: 12px;
+        line-height: 14px;
+    }
+
+    .form_container input {
+        height: 35px;
+    }
+
+    .submit_btn {
+        height: 45px;
+    }
+
+    .new_account {
+        font-size: 12px;
+        line-height: 14px;
+    }
+
+    .divide {
+        font-size: 12px;
+        line-height: 14px;
+    }
 }

@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import google from '../../assets/images/google.png'
-import github from '../../assets/images/github.png'
+// import github from '../../assets/images/github.png'
 import './Login.css'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -28,11 +28,11 @@ const Login = () => {
         const email = form.email.value;
         const password = form.password.value;
 
-        console.log(email, password);
+        // console.log(email, password);
 
         signInUser(email, password)
         .then(result => {
-            console.log(result.user);
+            // console.log(result.user);
             form.reset();
             toast('Login successful')
             navigate(from, { replace: true });
@@ -58,7 +58,7 @@ const Login = () => {
     const handleGithubSignIn = () => {
         githubSingIn(githubProvider)
             .then(result => {
-                console.log(result.user);
+                // console.log(result.user);
                 navigate(from, { replace: true });
             })
             .then(error => {
@@ -68,19 +68,19 @@ const Login = () => {
     
     return (
         <div>
-            <div className='form_container drop-shadow-2xl'>
-                <h2 className='title pt-2 text-cyan-600 font-bold text-3xl'>Login!</h2>
+            <div className='form_container '>
+                <h2 style={{color: '#C60315'}} className='title pt-2 font-bold md:text-3xl text-2xl'>Login!</h2>
                 <form onSubmit={handleSubmit}>
                     <div className="form_control">
                         <label className='label' htmlFor="email">Email</label>
-                        <input type="email" name='email' placeholder='Your Email' id='email' required />
+                        <input type="email" name='email' placeholder='Your Email' id='email' required className=' focus:outline-none focus:border-red-500' />
                     </div>
                     <div className="form_control">
                         <label className='label' htmlFor="password">Password</label>
-                        <input type='password' name='password' placeholder='Your Password' id='password' required />
+                        <input type='password' name='password' placeholder='Your Password' id='password' required className=' focus:outline-none focus:border-red-500' />
                     </div>
 
-                    <input  type="submit" value="Login" className='submit_btn' />
+                    <input  type="submit" value="Login" style={{backgroundColor: '#C60315'}}  className="border mt-4 text-1xl rounded-lg  text-white h-10 w-full sm:w-28 " />
                 </form>
                 <p className='new_account'> <Link to='/singup' className='text-red-600'>Create a New Account</Link></p>
                 <div className='divide_container my-2'>
@@ -90,19 +90,17 @@ const Login = () => {
                 </div>
                 <div className='social_login pb-4'>
                     <div className='flex items-center justify-center'>
-                    <button onClick={handleGoogleSingIn} className='text-white mb-2 flex items-center justify-center gap-3 lg:w-[300px] lg:h-[50px] bg-gradient-to-r from-[#0F3D4C] to-[#39c8efe8]'>
+                    <button onClick={handleGoogleSingIn} className='text-white mb-2 flex items-center justify-center  '>
                   
                             <img className='social-img' src={google} alt="" />
-                
-                        <span>SignIn Google</span>
                     </button>
                     </div>
-                    <div className='flex items-center justify-center'>
+                    {/* <div className='flex items-center justify-center'>
                     <button onClick={handleGithubSignIn} className='text-white flex items-center justify-center gap-3 lg:w-[300px] lg:h-[50px] bg-gradient-to-r from-[#0F3D4C] to-[#39c8efe8]'>
                         <img className='social-img' src={github} alt="" />
                         <span>SignIn Github</span>
                     </button>
-                    </div>
+                    </div> */}
                 </div>
             </div>
             <ToastContainer />

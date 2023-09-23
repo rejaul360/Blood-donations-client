@@ -22,7 +22,7 @@ const MyToys = () => {
         }
     }, [user])
     const handleToyDelete = (_id) => {
-        // console.log(_id);
+        console.log(_id);
         Swal.fire({
             title: 'Are you sure?',
             text: "You won't be able to revert this!",
@@ -48,7 +48,7 @@ const MyToys = () => {
                             const remaining = mytoys.filter(toy => toy._id !==_id)
                             setMyToys(remaining);
                             console.log(remaining);
-                            // console.log(setMyToys);
+                            console.log(setMyToys);
                         }
 
                     })
@@ -80,57 +80,51 @@ const MyToys = () => {
 
     return (
         <div className='h-full shadow py-8 p-5'>
-            <h1 className='text-center text-4xl font-bold text-cyan-600  mb-6 ' >My Toys</h1>
-            <div className='mb-3'>
+            <h1 className='text-center text-4xl font-bold mb-6 ' ></h1>
+            {/* <div className='mb-3'>
                 <button onClick={handleAscending} className='mr-6 btn  btn-success' >Asn</button>
                 <button onClick={handleDscending} className='btn  btn-warning'>Dsn</button>
-            </div>
-            <div>
-                <div className="overflow-x-auto">
-                    <table className="table table-zebra w-full ">
-                        {/* head */}
-                        <thead>
-                            <tr>
-                                <th>#</th>
-                                <th>ইউজার</th>
-                                <th>রক্তদাতার নাম</th>
-                                <th>জেলা</th>
-                                {/* <th>description</th> */}
-                                <th>বিভাগ</th>
-                                <th>কতবার রক্ত দিয়েছেন</th>
-                                <th>আপডেট</th>
-                                <th>ডিলিট</th>
-                            </tr>
-                        </thead>
-                        <tbody>
+            </div> */}
+          <div className="grid grid-cols-1 gap-4 lg:grid-cols-3 md:grid-cols-3 ">
+        {mytoys?.slice(0, 19).map((toy) => (
 
-                            {mytoys?.map((toy, index) => (
-                                <tr>
-                                    <td>{index + 1}</td>
-                                    <td>{toy.salername}</td>
-                                    <td>{toy.name}</td>
-                                    <td>{toy.price}</td>
-                                    {/* <td>{toy.description}</td> */}
-                                    <td>{toy.quantity}</td>
-                                    <td>{toy.rating}</td>
-                                    <td>
+          <div className="card  bg-base-100 shadow-lg md:pl-10  py-8">
+            <div className="lg:flex"> {/* Apply flex layout for large screens */}
+              <figure className="">
+                <img
+                  src={toy.photo}
+                  alt="Photo"
+                  className="h-auto w-full lg:h-56 lg:w-40" // Adjust size for large screens
+                />
+              </figure>
+              <div className="card-body ">
+                <div className="bg-white  " key={toy._id}>
+                  {/* <h3 className="text-xl font-semibold mb-2">ইউজার: {toy.salername}</h3> */}
+                  <p className="text-sm mb-2">রক্তদাতার নাম: {toy.name}</p>
+                  <p className="text-sm mb-2">রক্তের ধরন: {toy.category}</p>
+                  <p className="text-sm mb-2">জেলা: {toy.price}</p>
+                  <p>মোবাইল নাম্বার: {toy.phone}</p>
+                  {/* <p className="text-sm mb-2">বিভাগ: {toy.quantity}</p> */}
 
-                                        <Link to={`/updateInfo/${toy._id}`}>
-                                            <button className='btn  btn-success'>
+                  <span>
+                  <Link to={`/updateInfo/${toy._id}`}>
+                                            <button style={{backgroundColor: '#087FFD'}}   className='border mt-4 text-1xl rounded-lg  text-white h-10 w-full sm:w-29'>
                                                 Update
                                             </button>
                                         </Link>
-                                    </td>
-                                    <td>
+                  </span>
 
-                                        <button onClick={() => handleToyDelete(toy._id)} className='btn btn-error'>Delete</button>
-                                    </td>
-                                </tr>
-                            ))}
-                        </tbody>
-                    </table>
+        
+                  <button onClick={() => handleToyDelete(toy._id)} style={{backgroundColor: '#C60315'}}  className='border mt-4 text-1xl rounded-lg  text-white h-10 w-full sm:w-29'>Delete</button>
+ 
+
                 </div>
+              </div>
             </div>
+          </div>
+
+        ))}
+      </div>
         </div>
     );
 };
