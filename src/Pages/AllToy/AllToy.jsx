@@ -51,11 +51,11 @@ const AllToy = () => {
     <div className='h-full shadow p-5 bg-gray-100'>
       <h1 style={{ color: '#C60315' }} className='text-center md:text-4xl text-2xl font-bold  mb-6'>সকল রক্তদানকারী তথ্য</h1>
 
-      <div className="search-box p-2 text-center mb-6">
+      <div className="search-box p-2 text-center mb-6 ">
         <input
           onChange={(e) => setSearchText(e.target.value)}
           type="text"
-          className="p-1 w-full sm:w-1/2 border shadow" // Adjust the width based on screen size
+          className="p-1 w-full sm:w-1/2  shadow  focus:outline-none focus:border-red-500" // Adjust the width based on screen size
         />
         <button
           onClick={handleSearchText}

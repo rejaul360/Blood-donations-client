@@ -7,6 +7,7 @@ const AddToy = () => {
 
     const { user } = useContext(AuthContext)
 
+
     const handleAddtoys = event => {
         event.preventDefault();
 
@@ -29,7 +30,7 @@ const AddToy = () => {
 
 
 
-        const addToy = { name, quantity, salername, price, category, description, photo, postedBy, rating, phone, boyos, details,parmanent,present }
+        const addToy = { name, quantity, salername, price, category, description, photo, postedBy, rating, phone, boyos, details, parmanent, present }
 
         // console.log(addToy);
 
@@ -55,11 +56,9 @@ const AddToy = () => {
             })
         form.reset()
     }
-
-
     return (
         <div className=" p-4 md:p-24 rounded-3xl py-7 shadow-lg">
-            <h2 style={{color: '#C60315'}} className="text-center text-4xl font-bold   mb-6">রক্তদাতার তথ্য </h2>
+            <h2 style={{ color: '#C60315' }} className="text-center text-4xl font-bold   mb-6">রক্তদাতার তথ্য </h2>
             <form onSubmit={handleAddtoys}>
                 {/* form name and quantity row */}
                 <div className="mb-8">
@@ -68,7 +67,7 @@ const AddToy = () => {
                             <span className="label-text  " > রক্তদাতার ছবি </span>
                         </label>
                         <label className="input-group">
-                            <input type="text" name="image" placeholder="ছবি " className=" p-4 file-input file-input-bordered w-full" required />
+                            <input type="text" name="image" placeholder="ছবি " className=" p-4 file-input file-input-bordered w-full focus:outline-none focus:border-red-500" required />
                         </label>
                     </div>
                 </div>
@@ -78,14 +77,14 @@ const AddToy = () => {
                             <span className="label-text ">রক্তদাতার নাম</span>
                         </label>
                         <label className="input-group">
-                            <input type="text" name="name" placeholder="নাম" className="input input-bordered w-full" />
+                            <input type="text" name="name" placeholder="নাম" className="input input-bordered w-full focus:outline-none focus:border-red-500" />
                         </label>
                     </div>
                     <div className="form-control w-full md:w-1/2 md:ml-4 ">
                         <label className="label">
                             <span className="label-text">রক্তের ধরন</span>
                         </label>
-                        <select name='category' className="select select-bordered w-full  ">
+                        <select name='category' className="select select-bordered w-full  focus:outline-none focus:border-red-500">
                             <option value='A+'>A+</option>
                             <option value='A-'>A-</option>
                             <option value='B+'>B+</option>
@@ -106,7 +105,7 @@ const AddToy = () => {
                             <span className="label-text ">ইউজার নাম</span>
                         </label>
                         <label className="input-group">
-                            <input type="text" name="salername" placeholder=" নাম" className="input input-bordered w-full" defaultValue={user?.displayName} />
+                            <input type="text" name="salername" placeholder=" নাম" className="input input-bordered w-full focus:outline-none focus:border-red-500" defaultValue={user?.displayName} />
                         </label>
                     </div>
                     <div className="form-control md:w-1/2 md:ml-4">
@@ -115,7 +114,7 @@ const AddToy = () => {
                             </span>
                         </label>
                         <label className="input-group">
-                            <input type="text" name="postedBy" placeholder="ইমেইল" className="input input-bordered w-full" defaultValue={user?.email} />
+                            <input type="text" name="postedBy" placeholder="ইমেইল" className="input input-bordered w-full focus:outline-none focus:border-red-500" defaultValue={user?.email} />
                         </label>
                     </div>
                 </div>
@@ -125,7 +124,7 @@ const AddToy = () => {
                             <span className="label-text ">ঠিকানা, জেলা</span>
                         </label>
                         <label className="input-group">
-                            <input type="text" name="price" placeholder="জেলা" className="input input-bordered w-full" />
+                            <input type="text" name="price" placeholder="জেলা" className="input input-bordered w-full focus:outline-none focus:border-red-500" />
                         </label>
                     </div>
                     <div className="form-control sm:w-full md:w-1/2 md:ml-4">
@@ -133,7 +132,7 @@ const AddToy = () => {
                             <span className="label-text ">বিভাগ</span>
                         </label>
                         <label className="input-group">
-                            <input type="text" name="quantity" placeholder="বিভাগ" className="input input-bordered w-full" />
+                            <input type="text" name="quantity" placeholder="বিভাগ" className="input input-bordered w-full focus:outline-none focus:border-red-500" />
                         </label>
                     </div>
                 </div>
@@ -162,7 +161,7 @@ const AddToy = () => {
                             <span className="label-text ">মোবাইল নাম্বার </span>
                         </label>
                         <label className="input-group">
-                            <input type="number" name="phone" placeholder="মোবাইল নাম্বার " className="input input-bordered w-full" required />
+                            <input type="number" name="phone" placeholder="মোবাইল নাম্বার " className="input input-bordered w-full focus:outline-none focus:border-red-500" required />
                         </label>
                     </div>
                     <div className="form-control md:w-1/2 md:ml-4">
@@ -170,7 +169,7 @@ const AddToy = () => {
                             <span className="label-text ">বয়স</span>
                         </label>
                         <label className="input-group">
-                            <input type="number" name="boyos" placeholder="বয়স" className="input input-bordered w-full" />
+                            <input type="number" name="boyos" placeholder="বয়স" className="input input-bordered w-full focus:outline-none focus:border-red-500" />
                         </label>
                     </div>
                 </div>
@@ -181,7 +180,7 @@ const AddToy = () => {
                             <span className="label-text ">কতবার রক্ত দিয়েছেন </span>
                         </label>
                         <label className="input-group">
-                            <input type="number" name="rating" placeholder="কতবার রক্ত দিয়েছেন" className="input input-bordered w-full" required />
+                            <input type="number" name="rating" placeholder="কতবার রক্ত দিয়েছেন" className="input input-bordered w-full focus:outline-none focus:border-red-500" required />
                         </label>
                     </div>
                     <div className="form-control md:w-1/2 md:ml-4">
@@ -189,7 +188,7 @@ const AddToy = () => {
                             <span className="label-text ">শেষবার রক্তদানের তারিখ</span>
                         </label>
                         <label className="input-group">
-                            <input type="date" name="description" placeholder="Details" className="input input-bordered w-full" />
+                            <input type="date" name="description" placeholder="Details" className="input input-bordered w-full focus:outline-none focus:border-red-500" />
                         </label>
                     </div>
                 </div>
@@ -200,7 +199,7 @@ const AddToy = () => {
                         </label>
                         <label className="input-group">
                             <textarea
-                                className='w-full border border-black p-4'
+                                className='w-full border border-black p-4 focus:outline-none focus:border-red-500'
                                 name="details"
                                 id=""
                                 cols="30"
@@ -211,7 +210,26 @@ const AddToy = () => {
                     </div>
 
                 </div>
-                <input type="submit" value="SUBMIT" style={{backgroundColor: '#C60315'}}  className="border mt-4 text-1xl rounded-lg  text-white h-10 w-full sm:w-28 " />
+                {
+                    user ? (
+                        <button
+                            style={{ backgroundColor: '#C60315' }}
+                            className="border mt-4 text-1xl rounded-lg text-white h-10 w-full sm:w-28 "
+                        >
+                            SUBMIT
+                        </button>
+                    ) : (
+                        <button
+                 
+                        disabled={true}
+                            style={{ backgroundColor: 'gray' }}
+                            className="border  mt-4 text-1xl rounded-lg text-white h-10 w-full sm:w-28"
+                        >
+                            Disabled
+                        </button>
+                    )
+                }
+
 
             </form>
         </div>

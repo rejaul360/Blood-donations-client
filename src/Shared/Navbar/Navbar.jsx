@@ -18,17 +18,14 @@ const Navbar = () => {
     const menuItems = <>
 
         <li className='mr-1 md:mr-6 font-bold'> <Link to="/alltoy">সকল রক্তদাতা</Link></li>
-        {/* <li className='font-bold'><Link to="/blog">Blog</Link></li> */}
-        {user ?
-            <>
+ 
+          
 
                 <li className='font-bold mr-1 md:mr-6'><Link to="/addtoy">নতুন যোগদান</Link></li>
                 <li className='font-bold mr-1 md:mr-6'><Link to="/mytoy">ইউজার কালেকশন</Link></li>
-            </> :
-            <>
-
-            </>
-        }
+    
+  
+        
     </>
 
 

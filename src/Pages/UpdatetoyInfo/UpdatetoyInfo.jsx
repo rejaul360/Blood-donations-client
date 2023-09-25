@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { Navigate, useLoaderData, useLocation, useNavigate } from 'react-router-dom';
+import {  useLoaderData, } from 'react-router-dom';
 import { AuthContext } from '../../Provider/AuthProvider';
 import Swal from 'sweetalert2';
 
@@ -7,17 +7,17 @@ const UpdatetoyInfo = () => {
 
     const { user } = useContext(AuthContext)
 
-    const navigate = useNavigate()
-    const location = useLocation()
+    // const navigate = useNavigate()
+    // const location = useLocation()
 
-    let from = location.state?.from?.pathname || "/alltoy";
+    // let from = location.state?.from?.pathname || "/alltoy";
 
     const updateToy = useLoaderData()
     console.log(updateToy);
     const { _id, name, quantity, photo, price, category, description, rating, phone, boyos ,details,parmanent,present } = updateToy
 
 
-    console.log(updateToy);
+    // console.log(updateToy);
 
     const handleUpdatetoys = event => {
         event.preventDefault();
@@ -25,17 +25,14 @@ const UpdatetoyInfo = () => {
         const form = event.target;
 
         const name = form.name.value;
-        // const photo = form.photo.value;
+        const description = form.description.value;
         const category = form.category.value;
-        const quantity = form.quantity.value;
-        // const postedBy = form.postedBy.value;
-        // const salername = form.salername.value;
         const price = form.price.value;
         const rating = form.rating.value;
-        // const category = form.category.value;
+
         const phone = form.phone.value;
         const boyos = form.boyos.value;
-        const description = form.description.value;
+        const quantity = form.quantity.value;
         const parmanent = form.parmanent.value;
         const present = form.present.value;
         const details = form.details.value;
@@ -43,7 +40,7 @@ const UpdatetoyInfo = () => {
 
 
 
-        const updateToy = { name, price, photo, description, quantity, rating,phone, boyos ,details,category,parmanent,present}
+        const updateToy = { name, quantity, photo, price, category, description, rating, phone, boyos ,details,parmanent,present}
 
         console.log(updateToy);
 
@@ -60,20 +57,21 @@ const UpdatetoyInfo = () => {
             .then(res => res.json())
             .then(data => {
                 console.log(data);
-                if (data.modifiedCount>0) {
+                if (data.modifiedCount > 0) {
                     Swal.fire({
                         title: 'Success!',
                         text: ' Update Successfully',
                         icon: 'success',
                         confirmButtonText: 'Done'
                     })
+
+            
                 }
 
-                
+              
             })
            
-            form.reset();
-            navigate(from, { replace: true });
+              form.reset(); 
     }
 
     return (
@@ -207,7 +205,7 @@ const UpdatetoyInfo = () => {
                             <span className="label-text ">শেষবার রক্তদানের তারিখ</span>
                         </label>
                         <label className="input-group">
-                            <input type="date" name="description" placeholder="Details" className="input input-bordered w-full" defaultValue={description} />
+                            <input type="date" name="description" placeholder="শেষবার রক্তদানের তারিখ" className="input input-bordered w-full" defaultValue={description} />
                         </label>
                     </div>
                 </div>

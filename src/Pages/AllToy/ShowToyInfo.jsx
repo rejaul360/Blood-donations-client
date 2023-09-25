@@ -15,10 +15,10 @@ const ShowToyInfo = () => {
             <div className="hero min-h-screen">
                 <div className="hero-content flex-col lg:flex-row w-full gap-6">
                     <div className=" lg:w-1/2 md:p-4 ">
-                        <img src={photo} className=" lg:mx-0 rounded-lg shadow-2xl" alt="Toy" />
+                        <img src={photo} className=" lg:mx-0 rounded-lg shadow-2xl" alt="Photo" />
                     </div>
                     <div className=" p-4 md:p-8 space-y-3 w-full lg:w-1/2">
-                        <h1 className="text-3xl text-red-600 font-bold">রক্তদাতার নাম: {name}</h1>
+                        <h1 className="text-2xl text-red-600 font-bold">রক্তদাতার নাম: {name}</h1>
                         <p>ইউজার: {salername}</p>
                         <p>রক্তের ধরন: {category}</p>
                         <p>কতবার রক্ত দিয়েছেন: {rating}</p>

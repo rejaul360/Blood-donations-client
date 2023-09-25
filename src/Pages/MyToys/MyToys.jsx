@@ -1,9 +1,9 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../../Provider/AuthProvider';
-import UpdatetoyInfo from '../UpdatetoyInfo/UpdatetoyInfo';
+// import UpdatetoyInfo from '../UpdatetoyInfo/UpdatetoyInfo';
 import Swal from 'sweetalert2';
 import { Link } from 'react-router-dom';
-import { key } from 'localforage';
+// import { key } from 'localforage';
 
 const MyToys = () => {
 
@@ -53,28 +53,6 @@ const MyToys = () => {
 
                     })
             }
-        })
-    }
-
-
-    const handleAscending = () => {
-        fetch(`https://sports-toy-zone.vercel.app/aescending?price=${user?.email}`)
-        .then(res=>res.json())
-        .then(data=> {
-            setMyToys(data)
-            console.log(data);
-        })
-        
-    }
-    const handleDscending = () => {
-        fetch(`https://sports-toy-zone.vercel.app/descending?price=${user?.email}`)
-        .then(res=>res.json())
-        .then(data=> {
-            setMyToys(data)
-            console.log(data);
-
-
-            
         })
     }
 

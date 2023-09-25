@@ -19,8 +19,6 @@ const ReactTabs = () => {
     const toggleTab = (index) => {
         setToggleState(index);
     };
-
-
     useEffect(() => {
         fetch(`https://sports-toy-zone.vercel.app/category?category=Football`)
             .then(res => res.json())

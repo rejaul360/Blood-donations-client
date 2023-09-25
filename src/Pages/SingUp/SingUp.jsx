@@ -85,20 +85,20 @@ const SingUp = () => {
     <form onSubmit={handleSubmit} className="mt-4 md:w-2/3 lg:w-1/2 mx-auto">
         <div className="form_control mb-4">
             <label className='label' htmlFor="name">Name</label>
-            <input type="text" name='name' placeholder='Your Name' id='name' required className="w-full py-2 px-3 border rounded-lg focus:outline-none focus:border-blue-500" />
+            <input type="text" name='name' placeholder='Your Name' id='name' required className="w-full py-2 px-3 border rounded-lg focus:outline-none focus:border-red-500" />
         </div>
         <div className="form_control mb-4">
             <label className='label' htmlFor="email">Email</label>
-            <input type="email" name='email' placeholder='Your Email' id='email' required className="w-full py-2 px-3 border rounded-lg focus:outline-none focus:border-blue-500" />
+            <input type="email" name='email' placeholder='Your Email' id='email' required className="w-full py-2 px-3 border rounded-lg focus:outline-none focus:border-red-500" />
         </div>
         <div className="form_control mb-4">
             <label className='label' htmlFor="password">Password</label>
-            <input type="password" name='password' placeholder='Your Password' id='password' required className="w-full py-2 px-3 border rounded-lg focus:outline-none focus:border-blue-500" />
+            <input type="password" name='password' placeholder='Your Password' id='password' required className="w-full py-2 px-3 border focus:outline-none focus:border-red-500" />
             <span className='text-red-600 text-center'></span>
         </div>
         <div className="form_control mb-4">
             <label className='label' htmlFor="photoURL">Photo URL</label>
-            <input type="text" name='photoURL' placeholder='photoURL' id='photoURL' required className="w-full py-2 px-3 border rounded-lg focus:outline-none focus:border-blue-500" />
+            <input type="text" name='photoURL' placeholder='photoURL' id='photoURL' required className="w-full py-2 px-3 border rounded-lg focus:outline-none focus:border-red-500" />
         </div>
         <input type="submit" value="SignUp" style={{backgroundColor: '#C60315'}}  className="border mt-4 text-1xl rounded-lg  text-white h-10 md:w-full w-full  sm:w-28 " />
 
