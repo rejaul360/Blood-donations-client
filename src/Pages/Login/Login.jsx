@@ -90,7 +90,7 @@ const Login = () => {
                 </div>
                 <div className='social_login pb-4'>
                     <div className='flex items-center justify-center'>
-                    <button onClick={handleGoogleSingIn} className='text-white mb-2 flex items-center justify-center  '>
+                    <button onClick={handleGoogleSingIn} className='text-white mb-2 flex items-center justify-center'>
                   
                             <img className='social-img' src={google} alt="" />
                     </button>

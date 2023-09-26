@@ -2,10 +2,13 @@ import React, { useContext } from 'react';
 import Swal from 'sweetalert2'
 import { AuthContext } from '../../Provider/AuthProvider';
 
+const img_hosting_api = import.meta.env.VITE_image_api_token;
+
 
 const AddToy = () => {
 
     const { user } = useContext(AuthContext)
+
 
 
     const handleAddtoys = event => {
@@ -56,6 +59,8 @@ const AddToy = () => {
             })
         form.reset()
     }
+
+    console.log(img_hosting_api);
     return (
         <div className=" p-4 md:p-24 rounded-3xl py-7 shadow-lg">
             <h2 style={{ color: '#C60315' }} className="text-center text-4xl font-bold   mb-6">রক্তদাতার তথ্য </h2>
