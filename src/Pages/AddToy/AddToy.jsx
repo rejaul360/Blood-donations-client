@@ -1,8 +1,9 @@
 import React, { useContext } from 'react';
 import Swal from 'sweetalert2'
 import { AuthContext } from '../../Provider/AuthProvider';
+import { toFormData } from 'axios';
 
-const img_hosting_api = import.meta.env.VITE_image_api_token;
+const img_hosting_token = import.meta.env.VITE_image_api_token;
 
 
 const AddToy = () => {
@@ -34,33 +35,56 @@ const AddToy = () => {
 
 
         const addToy = { name, quantity, salername, price, category, description, photo, postedBy, rating, phone, boyos, details, parmanent, present }
+      
+        const img_hosting_url = `https://api.imgbb.com/1/upload?key=${img_hosting_token}`
+        console.log(img_hosting_token);
+    
+    
+            const formData = new toFormData();
+            formData.append('image', data.image[0])
+    
+            fetch(img_hosting_url, {
+                method: 'POST',
+                body: formData
+            })
+                .then(res => res.json())
+                .then(imgResponse => {
+                    console.log(imgResponse); 
+                    fetch('https://sports-toy-zone.vercel.app/postToy', {
+                        method: 'POST',
+                        headers: {
+                            'content-type': 'application/json'
+                        },
+                        body: JSON.stringify(addToy)
+                    })
+                        .then(res => res.json())
+                        .then(data => {
+                            // console.log(data);
+                            if (data.insertedId) {
+                                Swal.fire({
+                                    title: 'Success!',
+                                    text: ' Added Successfully',
+                                    icon: 'success',
+                                    confirmButtonText: 'Done'
+                                })
+                            }
+                        })
+                    form.reset()
+                })
+        
+            
+
+
+
+
 
         // console.log(addToy);
 
         // send data to the server
-        fetch('https://sports-toy-zone.vercel.app/postToy', {
-            method: 'POST',
-            headers: {
-                'content-type': 'application/json'
-            },
-            body: JSON.stringify(addToy)
-        })
-            .then(res => res.json())
-            .then(data => {
-                // console.log(data);
-                if (data.insertedId) {
-                    Swal.fire({
-                        title: 'Success!',
-                        text: ' Added Successfully',
-                        icon: 'success',
-                        confirmButtonText: 'Done'
-                    })
-                }
-            })
-        form.reset()
+ 
     }
 
-    console.log(img_hosting_api);
+    // console.log(img_hosting_api);
     return (
         <div className=" p-4 md:p-24 rounded-3xl py-7 shadow-lg">
             <h2 style={{ color: '#C60315' }} className="text-center text-4xl font-bold   mb-6">রক্তদাতার তথ্য </h2>
@@ -72,7 +96,7 @@ const AddToy = () => {
                             <span className="label-text  " > রক্তদাতার ছবি </span>
                         </label>
                         <label className="input-group">
-                            <input type="text" name="image" placeholder="ছবি " className=" p-4 file-input file-input-bordered w-full focus:outline-none focus:border-red-500" required />
+                            <input type="file" name="image" placeholder="ছবি " className="   w-full focus:outline-none focus:border-red-500" required />
                         </label>
                     </div>
                 </div>
