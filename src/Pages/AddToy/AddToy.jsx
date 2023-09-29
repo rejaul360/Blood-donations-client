@@ -15,25 +15,53 @@ const AddToy = () => {
 
     const onSubmit = (data) => {
         // send data to the server
-        fetch('https://sports-toy-zone.vercel.app/postToy', {
+
+
+        const formData = new FormData();
+        formData.append('image', data.image[0])
+
+        fetch(img_hosting_url, {
             method: 'POST',
-            headers: {
-                'content-type': 'application/json',
-            },
-            body: JSON.stringify(data),
+            body: formData
         })
-            .then((res) => res.json())
-            .then((data) => {
-                if (data.insertedId) {
-                    Swal.fire({
-                        title: 'Success!',
-                        text: ' Added Successfully',
-                        icon: 'success',
-                        confirmButtonText: 'Done',
+
+        .then(res => res.json())
+        .then(imgResponse => {
+            console.log(imgResponse); 
+
+            if(imgResponse.success){
+
+
+                const imgURL = imgResponse.data.display_url;
+                // const { name, quantity, photo, salername, price, category, description, rating, phone, boyos ,details,parmanent,present} = showtoyInfo
+                const { name, quantity, postedBy, salername, price, category, description, rating, phone, boyos ,details,parmanent,present} = data;
+                const newItem = { name, postedBy, quantity, salername, price, category, description, rating, phone, boyos ,details,parmanent,present, photo:imgURL}
+                console.log(newItem)
+
+                fetch('https://sports-toy-zone.vercel.app/postToy', {
+                    method: 'POST',
+                    headers: {
+                        'content-type': 'application/json',
+                    },
+                    body: JSON.stringify(newItem),
+                })
+                    .then((res) => res.json())
+                    .then((data) => {
+                        if (data.insertedId) {
+                            Swal.fire({
+                                title: 'Success!',
+                                text: ' Added Successfully',
+                                icon: 'success',
+                                confirmButtonText: 'Done',
+                            });
+                        }
                     });
-                }
-            });
-        reset(); // Reset the form after submission
+                reset(); // Reset the form after submission
+            }
+
+
+
+        });
     };
 
     return (
@@ -49,10 +77,10 @@ const AddToy = () => {
                         </label>
                         <label className="input-group">
                             <input
-                                type="text"
+                                type="file"
                                 name="image"
-                                placeholder="ছবি "
-                                className=" p-4 file-input file-input-bordered w-full focus:outline-none focus:border-red-500"
+                                placeholder="ছবি"
+                                className=" file-input file-input-bordered w-full focus:outline-none focus:border-red-500"
                                 {...register('image')}
                                 required
                             />

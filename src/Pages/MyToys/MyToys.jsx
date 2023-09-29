@@ -18,6 +18,7 @@ const MyToys = () => {
                 .then(res => res.json()
                     .then(data => {
                         setMyToys(data);
+                        console.log(setMyToys);
                     }))
         }
     }, [user])
