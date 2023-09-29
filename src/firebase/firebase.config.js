@@ -11,7 +11,7 @@ const firebaseConfig = {
   storageBucket: "blood-donation-99816.appspot.com",
   messagingSenderId: "58916806906",
   appId: "1:58916806906:web:6b378afff7668e0fcee943",
-  measurementId: "G-Y0BTPCF4E2"
+  measurementId: "G-Y0BTPCF4E2",
 };
 
 // Initialize Firebase
