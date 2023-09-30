@@ -5,21 +5,20 @@ import github from '../../assets/images/github.png'
 import { AuthContext } from '../../Provider/AuthProvider';
 import useTitle from '../../UseTitle/UseTitle';
 import { Link,  useLocation,  useNavigate } from 'react-router-dom';
-import { GithubAuthProvider, GoogleAuthProvider } from 'firebase/auth';
+import { GoogleAuthProvider } from 'firebase/auth';
 
 const SingUp = () => {
     useTitle('SingUp')
 
     // const { googleSingIn, githubSingIn } = useContext(AuthContext);
     const googleProvider = new GoogleAuthProvider();
-    const githubProvider = new GithubAuthProvider();
 
     const navigate = useNavigate()
     const location = useLocation()
 
     let from = location.state?.from?.pathname || "/";
 
-    const { createUser, updateUserProfile,googleSingIn, githubSingIn} = useContext(AuthContext)
+    const { createUser, updateUserProfile,googleSingIn} = useContext(AuthContext)
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -32,7 +31,7 @@ const SingUp = () => {
 
         createUser(email, password)
             .then(result => {
-                // console.log(result.user);
+                console.log(result.user);
                 handleUpdateUserProfile(name, photoURL);
                 form.reset();
             })
@@ -69,16 +68,16 @@ const SingUp = () => {
             })
     }
 
-    const handleGithubSignIn = () => {
-        githubSingIn(githubProvider)
-            .then(result => {
-                // console.log(result.user);
-                navigate(from, { replace: true });
-            })
-            .then(error => {
-                console.log(error);
-            })
-    }
+    // const handleGithubSignIn = () => {
+    //     githubSingIn(githubProvider)
+    //         .then(result => {
+    //             // console.log(result.user);
+    //             navigate(from, { replace: true });
+    //         })
+    //         .then(error => {
+    //             console.log(error);
+    //         })
+    // }
     return (
 <div className='p-5 py-6'>
     <h2 className='title pt-2 font-bold md:text-3xl text-2xl'>Register!</h2>
