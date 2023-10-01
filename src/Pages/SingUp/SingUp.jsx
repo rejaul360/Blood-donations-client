@@ -6,11 +6,12 @@ import { AuthContext } from '../../Provider/AuthProvider';
 import useTitle from '../../UseTitle/UseTitle';
 import { Link,  useLocation,  useNavigate } from 'react-router-dom';
 import { GoogleAuthProvider } from 'firebase/auth';
+import Swal from 'sweetalert2';
 
 const SingUp = () => {
     useTitle('SingUp')
 
-    // const { googleSingIn, githubSingIn } = useContext(AuthContext);
+    const { googleSingIn } = useContext(AuthContext);
     const googleProvider = new GoogleAuthProvider();
 
     const navigate = useNavigate()
@@ -18,7 +19,7 @@ const SingUp = () => {
 
     let from = location.state?.from?.pathname || "/";
 
-    const { createUser, updateUserProfile,googleSingIn} = useContext(AuthContext)
+    const { createUser, updateUserProfile} = useContext(AuthContext)
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -32,7 +33,7 @@ const SingUp = () => {
         createUser(email, password)
             .then(result => {
                 console.log(result.user);
-                handleUpdateUserProfile(name, photoURL);
+                handleUpdateUserProfile(name, photoURL,email);
                 form.reset();
             })
             .catch(error => {
@@ -42,15 +43,37 @@ const SingUp = () => {
 
     }
 
-    const handleUpdateUserProfile = (name, photoURL) => {
+    const handleUpdateUserProfile = (name, photoURL,email) => {
         const profile = {
             displayName: name,
-            photoURL: photoURL
+            photoURL: photoURL,
+            email:email
         }
         updateUserProfile(profile)
-            .then(result => {
-               
+        .then(() => {
+
+            const saveUser = {name:profile.displayName, img: profile.photoURL, email: profile.email}
+            fetch('http://localhost:5000/users', {
+                method: 'POST',
+                headers: {
+                    'content-type': 'application/json'
+                },
+                body: JSON.stringify(saveUser)
             })
+                .then(res => res.json())
+                .then(data => {
+                    if (data.insertedId) {
+                        Swal.fire({
+                            position: 'top-end',
+                            icon: 'success',
+                            title: 'User created successfully.',
+                            showConfirmButton: false,
+                            timer: 1500
+                        });
+                        navigate('/');
+                    }
+                })
+        })
             .catch(err => {
                 console.log(err);
 
@@ -59,25 +82,29 @@ const SingUp = () => {
 
     const handleGoogleSingIn = () => {
         googleSingIn(googleProvider)
-            .then(result => {
-                console.log(result.user);
-                navigate(from, { replace: true });
+        .then(result => {
+            const loggedUser = result.user
+            console.log(loggedUser);
+            const saveUser = {name:loggedUser.displayName, img: loggedUser.photoURL, email: loggedUser.email}
+            fetch('http://localhost:5000/users', {
+                method: 'POST',
+                headers: {
+                    'content-type': 'application/json'
+                },
+                body: JSON.stringify(saveUser)
             })
-            .then(error => {
-                console.log(error);
-            })
+                .then(res => res.json())
+                .then(() => {
+                        // navigate(from, { replace: true });
+                })
+           
+        })
+        .catch(err => {
+            console.log(err);
+
+        })
     }
 
-    // const handleGithubSignIn = () => {
-    //     githubSingIn(githubProvider)
-    //         .then(result => {
-    //             // console.log(result.user);
-    //             navigate(from, { replace: true });
-    //         })
-    //         .then(error => {
-    //             console.log(error);
-    //         })
-    // }
     return (
 <div className='p-5 py-6'>
     <h2 className='title pt-2 font-bold md:text-3xl text-2xl'>Register!</h2>
