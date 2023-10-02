@@ -6,6 +6,8 @@ const Navbar = () => {
 
     const { user, logOut } = useContext(AuthContext);
 
+    const isAdmin = true;
+
     const handleLogout = () => {
         logOut()
             .then(result => {
@@ -17,21 +19,28 @@ const Navbar = () => {
 
     const menuItems = <>
 
-        <li className='mr-1 md:mr-6 font-bold'> <Link to="/alltoy">সকল রক্তদাতা</Link></li>
- 
-          
-
+        {
+            isAdmin ? <>
+                <li className='mr-1 md:mr-6 font-bold'> <Link to="/alltoy">সকল রক্তদাতা</Link></li>
                 <li className='font-bold mr-1 md:mr-6'><Link to="/addtoy">নতুন যোগদান</Link></li>
                 <li className='font-bold mr-1 md:mr-6'><Link to="/mytoy">ইউজার কালেকশন</Link></li>
-    
-  
-        
+                <li className='font-bold mr-1 md:mr-6'><Link to="/admin">Adimn</Link></li>
+            </>
+                :
+                <>
+                    <li className='mr-1 md:mr-6 font-bold'> <Link to="/alltoy">সকল রক্তদাতা</Link></li>
+                    <li className='font-bold mr-1 md:mr-6'><Link to="/addtoy">নতুন যোগদান</Link></li>
+                    <li className='font-bold mr-1 md:mr-6'><Link to="/mytoy">ইউজার কালেকশন</Link></li>
+                </>
+        }
+
+
     </>
 
 
 
     return (
-        <div style={{backgroundColor:'#F6F6F6'}} className='py-4 flex items-center content-center  '>
+        <div style={{ backgroundColor: '#F6F6F6' }} className='py-4 flex items-center content-center  '>
             <div className="navbar lg:w-[1280px] mx-auto">
                 <div className="navbar-start">
                     <div className="dropdown">
@@ -43,10 +52,10 @@ const Navbar = () => {
                         </ul>
                     </div>
                     <Link to="/" className="logo flex items-center gap-2 h-auto sm:mt-3 w-auto">
-                        <img style={{borderRadius: "50%" }} src="https://www.nicepng.com/png/detail/117-1179838_blood-donation-camp-blood-donation-logo-png.png"
-                        className='w-8 md:w-9'
-                        alt="" />
-                        <h1 style={{color: '#C60315'}} className='text-center md:text-3xl  mt-7 font-bold  mb-6'>রক্তদান</h1>
+                        <img style={{ borderRadius: "50%" }} src="https://www.nicepng.com/png/detail/117-1179838_blood-donation-camp-blood-donation-logo-png.png"
+                            className='w-8 md:w-9'
+                            alt="" />
+                        <h1 style={{ color: '#C60315' }} className='text-center md:text-3xl  mt-7 font-bold  mb-6'>রক্তদান</h1>
                     </Link>
                 </div>
                 <div className="navbar-center hidden lg:flex">
@@ -66,7 +75,7 @@ const Navbar = () => {
 
                         </>
                     }
-                    <span>{user?.photoURL?
+                    <span>{user?.photoURL ?
                         <div className="tooltip tooltip-left tooltip-warning" data-tip={user?.displayName || user?.email}>
                             <img style={{ width: "45px", borderRadius: "50%" }} src={user?.photoURL} alt='' />
 

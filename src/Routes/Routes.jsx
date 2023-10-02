@@ -12,6 +12,9 @@ import MyToys from "../Pages/MyToys/MyToys";
 import UpdatetoyInfo from "../Pages/UpdatetoyInfo/UpdatetoyInfo";
 import ShowToyInfo from "../Pages/AllToy/ShowToyInfo";
 import ReactTabInfo from "../Pages/Home/ReactTabs/ReactTabInfo";
+import Dashboard from "../Layout/Dashboard";
+import AllUser from "../Pages/AllUser/AllUser";
+import AllPost from "../Pages/AllPost/AllPost";
 
 
 const router = createBrowserRouter([
@@ -68,6 +71,20 @@ const router = createBrowserRouter([
         }
       ]
     },
+    {
+        path: 'admin',
+        element: <Dashboard></Dashboard>,
+        children: [
+          {
+            path : 'allusers',
+            element : <AllUser></AllUser>
+          }, 
+          {
+            path: 'allpost',
+            element: <AllPost></AllPost>
+          }
+        ]
+      },
   ]);
 
   export default router;

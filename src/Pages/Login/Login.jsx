@@ -29,6 +29,7 @@ const Login = () => {
 
     signInUser(email, password)
       .then((result) => {
+        console.log(result);
         form.reset();
         toast('Login successful');
         navigate(from, { replace: true });
